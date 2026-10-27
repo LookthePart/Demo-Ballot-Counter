@@ -582,7 +582,7 @@ button.pdmo{display:flex;align-items:center;justify-content:center;gap:6px;width
 .sp .tdopt{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.35);color:#fff}.sp .tdopt small{color:rgba(255,255,255,.8)}.sp .tdopt.on{background:rgba(122,166,58,.22);border-color:#7aa63a}
 .sp-col p.td-n,.sp-col p.td-d{color:#fff;text-align:center;font-size:.6rem;line-height:1.45;margin:14px 30px 0;text-shadow:0 1px 8px rgba(0,0,0,.7)}.sp-col p.td-d{margin-top:8px}.sp-col p.td-d b{color:#fff}
 .tdopt{position:relative;padding-bottom:30px!important}.td-cur{position:absolute;left:14px;bottom:9px;font-weight:500;font-style:italic;font-size:.72rem;color:#6b7788}.tdopt b .td-cur{display:block}.sp .td-cur{color:rgba(255,255,255,.78)}
-.td-ok{margin:14px 0 0;min-height:1.4em;text-align:center;font-weight:700;font-size:.88rem;color:#4f7a1f}.td-ok svg{width:16px;height:16px;vertical-align:-3px}.tdopt b svg{width:15px;height:15px;vertical-align:-2px;color:#5f8a28}
+.td-ok{margin:14px 0 0;min-height:1.4em;white-space:nowrap;text-align:center;font-weight:700;font-size:.8rem;color:#4f7a1f}.td-ok svg{width:16px;height:16px;vertical-align:-3px}.tdopt b svg{width:15px;height:15px;vertical-align:-2px;color:#5f8a28}
 .sp .td-ok{color:#c5e68a}.sp .tdopt b svg{color:#c5e68a}.sp .pop-go{background:#fff;color:#1B2F52}
 .pop-go.dng{background:#b42318}
 .upc-foot{margin-top:30px;text-align:center}
@@ -711,6 +711,7 @@ button.pdmo{display:flex;align-items:center;justify-content:center;gap:6px;width
 .phone{position:relative;width:392px;max-width:100%;height:820px;border-radius:46px;border:10px solid #0C1017;overflow:hidden;background:#F3F5F8;color:#111;font-family:var(--f);box-shadow:0 24px 60px rgba(10,14,24,.28)}
 .mvp{--navy:#1B2F52;--bg:#F3F5F8;font-family:var(--f);color:#111;line-height:1.3;font-size:1rem}
 .app{position:absolute;inset:0;overflow-y:auto;padding-bottom:84px;overscroll-behavior:contain;background:#f6f8fb}
+.app:empty{background:transparent}
 .app::-webkit-scrollbar{display:none}
 .app>.mvp{padding:16px 16px 24px}
 svg.i{width:24px;height:24px;stroke:currentColor;fill:none;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
@@ -772,7 +773,7 @@ html:not(.dev) .rail{display:none}
 html:not(.dev) body{min-height:100vh;display:flex;align-items:center;justify-content:center;padding-block:24px}
 html:not(.dev) .stage{display:block;max-width:none;margin:0;width:100%}
 @media (max-width:520px){
-  html:not(.dev),html:not(.dev) body{height:100%;overflow:hidden;background:#0C1017;overscroll-behavior:none}
+  html:not(.dev),html:not(.dev) body{height:100%;overflow:hidden;background:#1B2F52;overscroll-behavior:none}
   html:not(.dev) body{padding:0;display:block;min-height:0}
   html:not(.dev) .stage,html:not(.dev) .phonewrap{display:block;padding:0}
   html:not(.dev) .phone{position:fixed;inset:0;width:100%;max-width:none;height:100vh;height:100dvh;border:0;border-radius:0;box-shadow:none}
@@ -1210,7 +1211,7 @@ function upcoming(){
 function ensureTestCount(){var v=S.testM?S.v:S.tv,ks=['recvL','recvS','sealL','sealS','openL','openS','m0pub','m0prot','m1pub','m1prot','prov','spoil','epoll'];return ks.filter(function(k){return v&&v[k]!==''&&v[k]!=null;}).length;}
 var NOTES_IN='<p class="td-n">You can toggle between the demo modes as much as you like. Each time you do, any edits you made will be reset.</p><p class="td-d"><b>Disclaimer:</b> This version of the app is for demo purposes and should not be used for election purposes without express consent.</p>';
 function testModal(){var cur=S.testData||'sample',sp=S.screen==='splash',conf=S.tdConfirm||null,sel=S.testPicked||null,CUR=' <span class="td-cur">(current selection)</span>';
-  var card='<div class="popc" data-act="noop"><button class="popx" data-act="modalx" aria-label="Close">\u2715</button><div class="pop-eye">Demo Mode</div><h3>Choose how to start</h3><button class="tdopt'+(sel==='fresh'?' on':'')+'" data-act="testfresh"><b>Start fresh'+(sel==='fresh'?CUR:'')+'</b><small>No election events and no saved data. Test first time setup.</small></button><button class="tdopt'+(sel==='sample'?' on':'')+'" data-act="testsample"><b>Load sample data &amp; events'+(sel==='sample'?CUR:'')+'</b><small>Pre-configured to mimic a real election cycle including Early Voting (in progress) and Election Day (future event).</small></button>'+'<div class="td-ok">'+(conf?CK+' '+(conf==='fresh'?'Started fresh. No election events or saved data.':'Sample data &amp; events loaded.'):'&nbsp;')+'</div>'+(conf&&sp?'<button class="pop-go" data-act="testdone">Done</button>':'')+(sp?'':NOTES_IN)+'</div>';
+  var card='<div class="popc" data-act="noop"><button class="popx" data-act="modalx" aria-label="Close">\u2715</button><div class="pop-eye">Demo Mode</div><h3>Choose how to start</h3><button class="tdopt'+(sel==='fresh'?' on':'')+'" data-act="testfresh"><b>Start fresh'+(sel==='fresh'?CUR:'')+'</b><small>No election events and no saved data. Test first time setup.</small></button><button class="tdopt'+(sel==='sample'?' on':'')+'" data-act="testsample"><b>Load sample data &amp; events'+(sel==='sample'?CUR:'')+'</b><small>Pre-configured to mimic a real election cycle including Early Voting (in progress) and Election Day (future event).</small></button>'+'<div class="td-ok">'+(conf?CK+' '+(conf==='fresh'?'Started fresh. No events or data.':'Sample data &amp; events loaded.'):'&nbsp;')+'</div>'+(sp?'':NOTES_IN)+'</div>';
   if(!sp)return '<div class="sheet pop"><div class="popc" data-act="noop">'+card.slice(card.indexOf('<button class="popx"'),-6)+'</div></div>';
   return '<div class="sheet pop sp"><div class="sp-col" data-act="noop">'+card+'<p class="td-n">You can toggle between the demo modes as much as you like. Each time you do, any edits you made will be reset.</p><p class="td-d"><b>Disclaimer:</b> This version of the app is for demo purposes and should not be used for election purposes without express consent.</p></div></div>';}
 function homeEmpty(){
@@ -1400,7 +1401,7 @@ function appset(){
   '<div class="card about"><span class="lbl">A calculator, nothing more</span><ul><li>It does not connect to voting machines, poll books, touchpads or any election system.</li><li>It does not count or store ballots or voter information. It only does arithmetic on the numbers you type in.</li><li>It is not an official election tool and is not connected to any election office. Always follow your official procedures and forms.</li></ul></div>'+
   '<h2 class="plain">Definitions</h2><div class="card about boxed"><div class="formula"><b>ePoll</b><br>Number read from the touchpad check-in machine. Represents number of voter check-ins.</div><div class="formula"><b>Public Count</b><br>Number read from public count on machine.</div><div class="formula"><b>Protected Count</b><br>Number read from protected count on machine.</div><div class="formula"><b>Ballots Received</b><br>Total number of ballots received at the polling location that day. Includes both Large Ballots and Small Cards.</div><div class="formula"><b>Sealed Ballots</b><br>Ballots that remained in original packaging. Never opened.</div><div class="formula"><b>Unsealed Ballots</b><br>Ballots that were removed from their packaging but never used.</div></div>'+
   '<div class="card about boxed"><span class="lbl">Calculation Definitions</span><div class="formula"><b>Lifetime</b><br>Cumulative total from Day 1 of Election Cycle</div><div class="formula"><b>Lifetime Change</b><br>Total change since Day 1 of Election Cycle</div><div class="formula"><b>Change from Yesterday</b><br>Difference in value from yesterday to today. A way to look at daily changes in a running total throughout Election Cycle.</div></div>'+
-  dlDanger()+'<p class="aps-about">Created by <a href="https://www.backstagestrategy.com" target="_blank" rel="noopener">Backstage Strategy</a><br>\u00a9 2025 Backstage Strategy. All rights reserved.<br>Demo build v69</p>'+'</section></div></div>';
+  dlDanger()+'<p class="aps-about">Created by <a href="https://www.backstagestrategy.com" target="_blank" rel="noopener">Backstage Strategy</a><br>\u00a9 2025 Backstage Strategy. All rights reserved.<br>Demo build v72</p>'+'</section></div></div>';
 }
 var SCREENS={test:today,upcoming:upcoming,splash:splash,login:login,home:home,wizard:wizard,today:today,days:days,download:download,election:election,appset:appset};
 var BAR=['home','days','today','download','election'],BARL={home:'Home',today:'Today',days:'Past Days',download:'Download',election:'Election'};
@@ -1489,10 +1490,10 @@ document.addEventListener('click',function(e){
   if(act==='key'){if(S.pin.length<4){S.pin+=a.dataset.k;render();if(S.pin.length===4)setTimeout(function(){if(S.screen==='login')go('home');},250);}}
   else if(act==='updel'){var ue=S.elects[S.peek];S.modal=confirmHTML('Delete this election event?','<b>'+esc(ue.type)+'</b> ('+rangeTxt(ue)+') and its setup will be removed from this phone. This cannot be undone.','Delete election event').replace('data-act="cfok"','data-act="updelok"').replace('class="pop-go"','class="pop-go dng"');render();}
   else if(act==='updelok'){S.modal='';delEvent(S.peek);S.peek=null;go('home');toast('Election event deleted');}
-  else if(act==='testdata'){S.tdConfirm=null;S.modal=testModal();render();}
+  else if(act==='testdata'){S.tdConfirm=null;S.modalAt=Date.now();S.modal=testModal();render();}
   else if(act==='testdone'){S.tdConfirm=null;S.modal='';if(S.screen!=='splash')go('home');else render();}
-  else if(act==='testfresh'){resetData('fresh');}
-  else if(act==='testsample'){resetData('sample');}
+  else if(act==='testfresh'){if(Date.now()-(S.modalAt||0)<500)return;resetData('fresh');}
+  else if(act==='testsample'){if(Date.now()-(S.modalAt||0)<500)return;resetData('sample');}
   else if(act==='logout'){S.from='';go('login');}
   else if(act==='del'){S.pin=S.pin.slice(0,-1);render();}
   else if(act==='clr'){S.pin='';render();}
