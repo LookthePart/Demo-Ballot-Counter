@@ -584,6 +584,21 @@ button.pdmo{display:flex;align-items:center;justify-content:center;gap:6px;width
 .tdopt{position:relative;padding-bottom:30px!important}.td-cur{position:absolute;left:14px;bottom:9px;font-weight:500;font-style:italic;font-size:.72rem;color:#6b7788}.tdopt b .td-cur{display:block}.sp .td-cur{color:rgba(255,255,255,.78)}
 .td-ok{margin:14px 0 0;min-height:1.4em;white-space:nowrap;text-align:center;font-weight:700;font-size:.8rem;color:#4f7a1f}.td-ok svg{width:16px;height:16px;vertical-align:-3px}.tdopt b svg{width:15px;height:15px;vertical-align:-2px;color:#5f8a28}
 .sp .td-ok{color:#c5e68a}.sp .tdopt b svg{color:#c5e68a}.sp .pop-go{background:#fff;color:#1B2F52}
+.sheet.dsh{background:rgba(10,20,40,.2);align-items:flex-end;justify-content:center;padding:0;overflow:hidden}
+.sheet.dsh.sp{background:transparent}
+.dshc{width:100%;background:#fff;border-radius:18px 18px 0 0;padding:8px 16px calc(14px + env(safe-area-inset-bottom,0px));box-shadow:0 -10px 30px rgba(10,28,60,.28);color:#1b2f52;font-family:var(--f);max-height:100%;overflow:auto}
+.dshc.up{animation:dshup .28s cubic-bezier(.22,.8,.3,1) both}
+@keyframes dshup{from{transform:translateY(100%)}to{transform:none}}
+.dshc{position:relative}.dsh-x{position:absolute;top:8px;right:10px;width:36px;height:36px;border:0;background:none;color:#8793a5;font-size:1.1rem;cursor:pointer;padding:0}
+.dsh-g{display:block;width:38px;height:4px;border-radius:3px;background:#cfd7e3;margin:0 auto 10px}
+.dsh-eye{font-size:.66rem;font-weight:800;letter-spacing:.16em;text-transform:uppercase;color:#5f8a28;text-align:center;margin-bottom:2px}
+.dsh-r{position:relative;display:block;width:100%;text-align:left;margin-top:9px;padding:14px 52px 14px 16px;border:1.5px solid #cfd7e3;border-radius:10px;background:#fff;color:#1b2f52;font:inherit;cursor:pointer}
+.dsh-ring{position:absolute;right:14px;top:50%;margin-top:-13px;width:26px;height:26px;border-radius:50%;border:2px solid #b9c4d3;display:grid;place-items:center}.dsh-r.on .dsh-ring{background:#5f8a28;border-color:#5f8a28}
+.dsh-r b{display:block;font-size:.88rem}.dsh-r small{display:block;margin-top:2px;font-size:.7rem;line-height:1.35;color:#6b7788;padding-right:4px}
+.dsh-r.on{border-color:#7aa63a;background:#f1f6e8}
+.dsh-cur{position:absolute;right:12px;top:10px;font-style:italic;font-weight:500;font-size:.64rem;color:#5a6577}
+.sheet.dsh .dshc .td-ok{margin:8px 0 0;font-size:.74rem;min-height:1.3em;color:#4f7a1f}
+.dsh-n,.dsh-d{margin:6px 8px 0;font-size:.58rem;line-height:1.4;color:#6b7788;text-align:center}.dsh-d b{color:#44516a}
 .pop-go.dng{background:#b42318}
 .upc-foot{margin-top:30px;text-align:center}
 .upc-test{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;margin:0 0 4px;padding:14px;border:1.5px solid #a6cf63;border-radius:8px;background:rgba(255,255,255,.08);color:#fff;text-align:left;font:inherit;cursor:pointer}
@@ -778,7 +793,8 @@ html:not(.dev) .stage{display:block;max-width:none;margin:0;width:100%}
   html:not(.dev) .stage,html:not(.dev) .phonewrap{display:block;padding:0}
   html:not(.dev) .phone{position:fixed;inset:0;width:100%;max-width:none;height:100vh;height:100dvh;border:0;border-radius:0;box-shadow:none}
   html:not(.dev) .bar{padding-bottom:calc(12px + env(safe-area-inset-bottom,0px))}
-  html:not(.dev) .app{padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+  html:not(.dev) .app:not(.nopad){padding-bottom:calc(84px + env(safe-area-inset-bottom,0px))}
+  html:not(.dev) .hbody,html:not(.dev) .pd-list{padding-bottom:calc(100px + env(safe-area-inset-bottom,0px))}
   html:not(.dev) .toast{bottom:calc(78px + env(safe-area-inset-bottom,0px))}
 }
 @media (min-width:521px){html:not(.dev) .phone{height:min(820px,calc(100vh - 48px))}}
@@ -1095,7 +1111,7 @@ function seal(){return '<svg class="seal" viewBox="0 0 132 132" aria-hidden="tru
 var PHOS=[['courthouse','Courthouse','center 28%'],['palace','Palace Theatre','center 72%'],['tower','Tower','center 30%'],['flags','Flags','30% 40%'],['shop','Downtown','center 45%'],['none','No photo','']];
 function phBg(){return '';}
 function phStyle(ov){var p=PHOS.filter(function(x){return x[0]===(S.photo||'courthouse');})[0];if(p[0]==='none')return 'background:#1B2F52';return 'background:'+ov+',url('+PH[p[0]]+') '+p[2]+'/cover no-repeat,#1B2F52';}
-function splash(){return '<div class="splash" style="'+phBg('linear-gradient(180deg,rgba(27,47,82,.55) 0%,rgba(27,47,82,.82) 45%,rgba(27,47,82,.96) 100%)')+'"><img class="wl" src="'+PH.wwhite+'" alt="Williamson County, Texas"><h1>Ballot Counter</h1><p>Account for every piece of paper.</p><button class="go" data-go="login">Get started</button><div class="tiny">The real app moves on by itself after 2 seconds</div><button class="demo" data-act="testdata">Demo Mode</button></div>';}
+function splash(){return '<div class="splash" style="'+phBg('linear-gradient(180deg,rgba(27,47,82,.55) 0%,rgba(27,47,82,.82) 45%,rgba(27,47,82,.96) 100%)')+'"><img class="wl" src="'+PH.wwhite+'" alt="Williamson County, Texas"><h1>Ballot Counter</h1><p>Account for every piece of paper.</p><button class="go" data-go="login">'+(S.testPicked==='sample'?'Welcome Back':S.testPicked==='fresh'?'Get Started':'Get started')+'</button><div class="tiny">The real app moves on by itself after 2 seconds</div><button class="demo" data-act="testdata">Select Demo Mode</button></div>';}
 function login(){
   var dots='',keys='';for(var i=0;i<4;i++)dots+='<i class="'+(i<S.pin.length?'on':'')+'"></i>';
   [1,2,3,4,5,6,7,8,9].forEach(function(k){keys+='<button class="key" data-act="key" data-k="'+k+'">'+k+'</button>';});
@@ -1210,10 +1226,14 @@ function upcoming(){
 }
 function ensureTestCount(){var v=S.testM?S.v:S.tv,ks=['recvL','recvS','sealL','sealS','openL','openS','m0pub','m0prot','m1pub','m1prot','prov','spoil','epoll'];return ks.filter(function(k){return v&&v[k]!==''&&v[k]!=null;}).length;}
 var NOTES_IN='<p class="td-n">You can toggle between the demo modes as much as you like. Each time you do, any edits you made will be reset.</p><p class="td-d"><b>Disclaimer:</b> This version of the app is for demo purposes and should not be used for election purposes without express consent.</p>';
-function testModal(){var cur=S.testData||'sample',sp=S.screen==='splash',conf=S.tdConfirm||null,sel=S.testPicked||null,CUR=' <span class="td-cur">(current selection)</span>';
-  var card='<div class="popc" data-act="noop"><button class="popx" data-act="modalx" aria-label="Close">\u2715</button><div class="pop-eye">Demo Mode</div><h3>Choose how to start</h3><button class="tdopt'+(sel==='fresh'?' on':'')+'" data-act="testfresh"><b>Start fresh'+(sel==='fresh'?CUR:'')+'</b><small>No election events and no saved data. Test first time setup.</small></button><button class="tdopt'+(sel==='sample'?' on':'')+'" data-act="testsample"><b>Load sample data &amp; events'+(sel==='sample'?CUR:'')+'</b><small>Pre-configured to mimic a real election cycle including Early Voting (in progress) and Election Day (future event).</small></button>'+'<div class="td-ok">'+(conf?CK+' '+(conf==='fresh'?'Started fresh. No events or data.':'Sample data &amp; events loaded.'):'&nbsp;')+'</div>'+(sp?'':NOTES_IN)+'</div>';
-  if(!sp)return '<div class="sheet pop"><div class="popc" data-act="noop">'+card.slice(card.indexOf('<button class="popx"'),-6)+'</div></div>';
-  return '<div class="sheet pop sp"><div class="sp-col" data-act="noop">'+card+'<p class="td-n">You can toggle between the demo modes as much as you like. Each time you do, any edits you made will be reset.</p><p class="td-d"><b>Disclaimer:</b> This version of the app is for demo purposes and should not be used for election purposes without express consent.</p></div></div>';}
+var DCK='<svg viewBox="0 0 24 24" width="15" height="15"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="#fff" stroke-width="3.2" stroke-linecap="round" stroke-linejoin="round"/></svg>';
+function testModal(){var conf=S.tdConfirm||null,sel=S.testPicked||null,an=S.dshAnim,sp=S.screen==='splash';S.dshAnim=false;
+  function row(k,t,d){return '<button class="dsh-r'+(sel===k?' on':'')+'" data-act="'+(k==='fresh'?'testfresh':'testsample')+'"><b>'+t+'</b><small>'+d+'</small><i class="dsh-ring">'+(sel===k?DCK:'')+'</i>'+'</button>';}
+  return '<div class="sheet dsh'+(sp?' sp':'')+'" data-act="modalx"><div class="dshc'+(an?' up':'')+'" data-act="noop"><i class="dsh-g"></i><button class="dsh-x" data-act="modalx" aria-label="Close">\u2715</button><div class="dsh-eye">Demo Mode</div>'
+   +row('fresh','Start fresh','No election events and no saved data. Test first time setup.')
+   +row('sample','Load sample data &amp; events','Mimics a real election cycle: Early Voting (in progress) and Election Day (future event).')
+   +'<div class="td-ok">'+(sel?'Tap again to confirm selection':'&nbsp;')+'</div>'
+   +'<p class="dsh-n">You can toggle between the demo modes as much as you like. Each time you do, any edits you made will be reset.</p><p class="dsh-d"><b>Disclaimer:</b> This version of the app is for demo purposes and should not be used for election purposes without express consent.</p></div></div>';}
 function homeEmpty(){
   return '<div class="hm-wrap"><div class="hero" style="padding-bottom:0"><div class="hero-top"><img src="'+PH.wwhite+'" alt="Williamson County, Texas"><button class="hbtn" data-go="appset" data-from="home" aria-label="App settings">'+ic('gear')+'</button></div><div class="hero-tx"><div class="wz-eye" style="margin-bottom:8px">Williamson County Elections</div><h1>Welcome</h1><p>No election events yet</p></div></div><div class="hsheet" id="hsheet" style="top:auto"><div class="hbody" id="hbody"><section class="hs now"><div class="now-t"><span>Get started</span><b>Add your first election event</b><small>Set up your site, dates and scanner machines.</small></div><button class="soft-go" data-go="wizard">Add election event</button></section>'+homeFoot().replace('<button class="hlink2" data-go="wizard">+ Add election event</button>','')+'</div></div></div>';
 }
@@ -1401,7 +1421,7 @@ function appset(){
   '<div class="card about"><span class="lbl">A calculator, nothing more</span><ul><li>It does not connect to voting machines, poll books, touchpads or any election system.</li><li>It does not count or store ballots or voter information. It only does arithmetic on the numbers you type in.</li><li>It is not an official election tool and is not connected to any election office. Always follow your official procedures and forms.</li></ul></div>'+
   '<h2 class="plain">Definitions</h2><div class="card about boxed"><div class="formula"><b>ePoll</b><br>Number read from the touchpad check-in machine. Represents number of voter check-ins.</div><div class="formula"><b>Public Count</b><br>Number read from public count on machine.</div><div class="formula"><b>Protected Count</b><br>Number read from protected count on machine.</div><div class="formula"><b>Ballots Received</b><br>Total number of ballots received at the polling location that day. Includes both Large Ballots and Small Cards.</div><div class="formula"><b>Sealed Ballots</b><br>Ballots that remained in original packaging. Never opened.</div><div class="formula"><b>Unsealed Ballots</b><br>Ballots that were removed from their packaging but never used.</div></div>'+
   '<div class="card about boxed"><span class="lbl">Calculation Definitions</span><div class="formula"><b>Lifetime</b><br>Cumulative total from Day 1 of Election Cycle</div><div class="formula"><b>Lifetime Change</b><br>Total change since Day 1 of Election Cycle</div><div class="formula"><b>Change from Yesterday</b><br>Difference in value from yesterday to today. A way to look at daily changes in a running total throughout Election Cycle.</div></div>'+
-  dlDanger()+'<p class="aps-about">Created by <a href="https://www.backstagestrategy.com" target="_blank" rel="noopener">Backstage Strategy</a><br>\u00a9 2025 Backstage Strategy. All rights reserved.<br>Demo build v72</p>'+'</section></div></div>';
+  dlDanger()+'<p class="aps-about">Created by <a href="https://www.backstagestrategy.com" target="_blank" rel="noopener">Backstage Strategy</a><br>\u00a9 2025 Backstage Strategy. All rights reserved.<br>Demo build v78</p>'+'</section></div></div>';
 }
 var SCREENS={test:today,upcoming:upcoming,splash:splash,login:login,home:home,wizard:wizard,today:today,days:days,download:download,election:election,appset:appset};
 var BAR=['home','days','today','download','election'],BARL={home:'Home',today:'Today',days:'Past Days',download:'Download',election:'Election'};
@@ -1490,10 +1510,10 @@ document.addEventListener('click',function(e){
   if(act==='key'){if(S.pin.length<4){S.pin+=a.dataset.k;render();if(S.pin.length===4)setTimeout(function(){if(S.screen==='login')go('home');},250);}}
   else if(act==='updel'){var ue=S.elects[S.peek];S.modal=confirmHTML('Delete this election event?','<b>'+esc(ue.type)+'</b> ('+rangeTxt(ue)+') and its setup will be removed from this phone. This cannot be undone.','Delete election event').replace('data-act="cfok"','data-act="updelok"').replace('class="pop-go"','class="pop-go dng"');render();}
   else if(act==='updelok'){S.modal='';delEvent(S.peek);S.peek=null;go('home');toast('Election event deleted');}
-  else if(act==='testdata'){S.tdConfirm=null;S.modalAt=Date.now();S.modal=testModal();render();}
+  else if(act==='testdata'){S.tdConfirm=null;S.modalAt=Date.now();S.dshAnim=true;S.modal=testModal();render();}
   else if(act==='testdone'){S.tdConfirm=null;S.modal='';if(S.screen!=='splash')go('home');else render();}
-  else if(act==='testfresh'){if(Date.now()-(S.modalAt||0)<500)return;resetData('fresh');}
-  else if(act==='testsample'){if(Date.now()-(S.modalAt||0)<500)return;resetData('sample');}
+  else if(act==='testfresh'){if(Date.now()-(S.modalAt||0)<500)return;if(S.testPicked==='fresh'){S.tdConfirm=null;S.modal='';render();return;}resetData('fresh');}
+  else if(act==='testsample'){if(Date.now()-(S.modalAt||0)<500)return;if(S.testPicked==='sample'){S.tdConfirm=null;S.modal='';render();return;}resetData('sample');}
   else if(act==='logout'){S.from='';go('login');}
   else if(act==='del'){S.pin=S.pin.slice(0,-1);render();}
   else if(act==='clr'){S.pin='';render();}
