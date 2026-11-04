@@ -1436,7 +1436,7 @@ function appset(){
   '<div class="card about"><span class="lbl">A calculator, nothing more</span><ul><li>It does not connect to voting machines, poll books, touchpads or any election system.</li><li>It does not count or store ballots or voter information. It only does arithmetic on the numbers you type in.</li><li>It is not an official election tool and is not connected to any election office. Always follow your official procedures and forms.</li></ul></div>'+
   '<h2 class="plain">Definitions</h2><div class="card about boxed"><div class="formula"><b>ePoll</b><br>Number read from the touchpad check-in machine. Represents number of voter check-ins.</div><div class="formula"><b>Public Count</b><br>Number read from public count on machine.</div><div class="formula"><b>Protected Count</b><br>Number read from protected count on machine.</div><div class="formula"><b>Ballots Received</b><br>Total number of ballots received at the polling location that day. Includes both Large Ballots and Small Cards.</div><div class="formula"><b>Sealed Ballots</b><br>Ballots that remained in original packaging. Never opened.</div><div class="formula"><b>Unsealed Ballots</b><br>Ballots that were removed from their packaging but never used.</div></div>'+
   '<div class="card about boxed"><span class="lbl">Calculation Definitions</span><div class="formula"><b>Lifetime</b><br>Cumulative total from Day 1 of Election Cycle</div><div class="formula"><b>Lifetime Change</b><br>Total change since Day 1 of Election Cycle</div><div class="formula"><b>Change from Yesterday</b><br>Difference in value from yesterday to today. A way to look at daily changes in a running total throughout Election Cycle.</div></div>'+
-  dlDanger()+'<p class="aps-about">Created by <a href="https://www.backstagestrategy.com" target="_blank" rel="noopener">Backstage Strategy</a><br>\u00a9 2025 Backstage Strategy. All rights reserved.<br>Demo build v84</p>'+'</section></div></div>';
+  dlDanger()+'<p class="aps-about">Created by <a href="https://www.backstagestrategy.com" target="_blank" rel="noopener">Backstage Strategy</a><br>\u00a9 2025 Backstage Strategy. All rights reserved.<br>Demo build v85</p>'+'</section></div></div>';
 }
 var SCREENS={test:today,upcoming:upcoming,splash:splash,login:login,home:home,wizard:wizard,today:today,days:days,download:download,election:election,appset:appset};
 var BAR=['home','days','today','download','election'],BARL={home:'Home',today:'Today',days:'Past Days',download:'Download',election:'Election'};
@@ -1486,7 +1486,9 @@ function chipSpy(){var ap=$('#app'),cs=$$('.chip[data-g]');if(!ap||!cs.length)re
   var ul=$('.chip-ul'),on=$('.chip.on span'),row=$('.chips');if(ul&&on&&row){var rr=row.getBoundingClientRect(),sr=on.getBoundingClientRect();ul.style.width=Math.round(sr.width)+'px';ul.style.transform='translateX('+Math.round(sr.left-rr.left)+'px)';}}
 function syncFix(){chipSpy();var ap=$('#app'),f=ap&&ap.querySelector('.fixbar.flow');if(f)f.classList.toggle('stuck',ap.scrollTop>6);}
 document.addEventListener('scroll',function(e){if(e.target&&e.target.id==='app')syncFix();},true);
+var PIN_OFF=true; /* PIN page temporarily removed: set to false to restore */
 function go(s,fm){
+  if(PIN_OFF&&s==='login')s=S.screen==='splash'?'home':'splash';
   var cur=S.screen,od=depthOf(cur),ap=$('#app');
   if(ap)S.scr[cur]=[ap.scrollTop,($('#hbody')||{}).scrollTop||0,($('#pdlist')||{}).scrollTop||0];
   leavePast();leaveTest();S.day='';S.fmBack=fm||'';S.pdMenu=null;if(s==='days'&&S.screen!=='today')S.pdOpen=null;
