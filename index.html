@@ -455,7 +455,7 @@ button.pdmo{display:flex;align-items:center;justify-content:center;gap:6px;width
 .pdmo{position:relative}.pdmo svg{position:absolute;right:12px;top:50%;margin-top:-8px;width:16px;height:16px;transition:transform .25s}
 .pdcw.shut .pdmo svg{transform:rotate(-90deg)}
 .pdcw.shut .cal2>*:not(.calmo){display:none}.pdcw.shut .legend2{display:none}.pdcw.shut .cal2{padding:10px 12px}.pdcw.shut .calmo{margin:0}
-.pd-list{padding:0 16px 100px;position:relative;flex:1 0 auto;display:flex;flex-direction:column}.pd-list>*{flex:none}.pd-del{margin-top:auto;padding-top:28px;display:flex;justify-content:center}.pf-card{margin-bottom:14px}.pdr.pf .pds.pfs{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;border:1.5px solid #8793a5;color:#6b7788;font:800 .75rem var(--f)}.pftag{font-style:normal;font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#6b7788;background:#eef1f6;border-radius:6px;padding:3px 7px;margin-right:4px}.pfdel{color:#9a3b3b}
+.pd-list{padding:0 16px 100px;position:relative;flex:1 0 auto;display:flex;flex-direction:column}.pd-list>*{flex:none}.pd-del{margin-top:auto;padding-top:28px;display:flex;justify-content:center}.pf-card{margin-bottom:14px}.pd-uh{margin:26px 2px 8px;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#6b7788}.qfb{width:100%;margin-bottom:10px}.pdr.pf .pds.pfs{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;border:1.5px solid #8793a5;color:#6b7788;font:800 .75rem var(--f)}.pftag{font-style:normal;font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#6b7788;background:#eef1f6;border-radius:6px;padding:3px 7px;margin-right:4px}.pfdel{color:#9a3b3b}
 .pd-note{margin:2px 2px 22px;color:#6b7788;font-size:.8rem;line-height:1.5;text-align:center}
 .pd-list>h3{position:sticky;top:0;z-index:3;margin:0;padding:16px 2px 8px;background:#f6f8fb;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#6b7788}
 .pd-card{background:#fff;border:1px solid #dfe5ee;border-radius:14px;position:relative}
@@ -871,11 +871,11 @@ var S={dev:'',exp:{raw:{ev:{0:true,1:false},days:'all',from:'2026-10-19',to:'202
   x:{site:'GAX',notes:'',comments:''},
   v:{}};
 var INIT=JSON.stringify({elects:S.elects,e:S.e,names:S.names,start:S.start,x:S.x,models:S.models,hist:HIST});
-function resetData(mode,silent){var I=JSON.parse(INIT);
+function resetData(mode,silent){var I=JSON.parse(INIT);TODAY=mode==='sample'?'2026-10-27':workDay(new Date());YEST=prevISO(TODAY);
   Object.keys(HIST).forEach(function(k){delete HIST[k];});
   if(mode==='sample'){Object.assign(HIST,I.hist);S.elects=I.elects;S.e=I.e;S.names=I.names;S.start=I.start;S.x=I.x;S.models=I.models;}
   else{S.elects=[];S.e={site:'',off:'',st:'',en:''};S.names=['Machine 1','Machine 2'];S.start={};S.x={site:'',notes:'',comments:''};S.models=[];}
-  S.act=0;S.v={};S.tv={};S.tx={comments:'',notes:'',site:S.x.site};S.tmade=false;S.pf=[];S.pi=0;S.upx={open:null,machines:2,counts:{},mDone:false,cDone:false};S.peek=null;S.fresh=false;S.pastD=null;S.testM=false;S.pdOpen=null;S.pdMenu=null;S.testData=mode;S.wz=newWz();
+  S.act=0;S.v={};S.tv={};S.tx={comments:'',notes:'',site:S.x.site};S.tmade=false;S.pf=[];S.pi=0;S.qf=[];S.qm=false;S.todayKeep=false;S.upx={open:null,machines:2,counts:{},mDone:false,cDone:false};S.peek=null;S.fresh=false;S.pastD=null;S.testM=false;S.pdOpen=null;S.pdMenu=null;S.testData=mode;S.wz=newWz();
   COLS={};S.col=getCol('today');S.homeSeen=false;ensureKeys();S.testPicked=mode;if(silent)return;S.tdConfirm=mode;S.modal=testModal();render();}
 function ensureKeys(){
   ['recvL','recvS','sealL','sealS','openL','openS','prov','spoil','epoll'].forEach(function(k){if(!(k in S.v))S.v[k]='';});
@@ -1040,8 +1040,10 @@ function boxHTML(rows,opts){
   if(opts.parts)return {h:h,f:f};
   return h+(f?'<div class="note">'+f+'</div>':'');
 }
+function dShort(iso){var d=new Date(iso+'T12:00:00');return ['Sun','Mon','Tue','Wed','Thu','Fri','Sat'][d.getDay()]+' '+mdShort(iso);}
+function dLong(iso){var d=new Date(iso+'T12:00:00');return ['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][d.getDay()]+', '+mdShort(iso)+', '+d.getFullYear();}
 function cntRows(c,name){
-  return [{l:name+', Starting (Day 1)',v:c.start},{l:name+', Yesterday (Mon Oct 26)',v:c.yest},{l:name+', Today (Tue Oct 27)',v:c.today},{l:'Change Since Yesterday',v:c.chg},{l:'Lifetime Change',v:c.since}];
+  return [{l:name+', Starting (Day 1)',v:c.start},{l:name+', Yesterday ('+dShort(YEST)+')',v:c.yest},{l:name+', Today ('+dShort(S.day||TODAY)+')',v:c.today},{l:'Change Since Yesterday',v:c.chg},{l:'Lifetime Change',v:c.since}];
 }
 function renderBoxes(){
   var m=model();
@@ -1077,7 +1079,7 @@ function copyText(t){
 function ledger(m){
   function nv(x){return x===null?'*':x;}
   function one(rows){return rows.map(function(x){return {k:'one',l:x.l,c:nv(x.v),red:x.red};});}
-  function cl(c,name,title){return [{k:'sec',l:title}].concat(cntRows(c,name).map(function(x){return {k:'one',l:x.l.replace(' (Mon Oct 26)','').replace(' (Tue Oct 27)',''),c:nv(x.v)};}));}
+  function cl(c,name,title){return [{k:'sec',l:title}].concat(cntRows(c,name).map(function(x){return {k:'one',l:x.l.replace(/ \([A-Z][a-z]{2} [A-Z][a-z]{2} \d+\)/,''),c:nv(x.v)};}));}
   var v=S.v,rows=[{k:'head'},{k:'sec',l:'Received Ballots'},{k:'tri',l:'New Ballots Received Today',a:v.recvL,b:v.recvS,c:m.C6},
     {k:'sec',l:'Unused Ballots'},{k:'tri',l:'Sealed - Never Opened',a:v.sealL,b:v.sealS,c:m.C9},{k:'tri',l:'Opened - Not Used',a:v.openL,b:v.openS,c:m.C10}];
   S.names.forEach(function(nm,i){rows.push({k:'sec',l:'Ballots Cast: '+nm},{k:'one',l:nm+' - Public',c:v['m'+i+'pub']},{k:'one',l:nm+' - Protected Count',c:v['m'+i+'prot']});});
@@ -1108,7 +1110,7 @@ var CHIPS='<div class="chips" role="navigation" aria-label="Jump to section"><i 
 function header(title,opts){
   opts=opts||{};
   var row='<div class="hrow">'+(opts.back?'<button class="hbtn" data-go="'+(opts.to||'home')+'" aria-label="Back">'+ic('back')+'</button>':'')+'<h1 style="flex:1'+(opts.center?';text-align:center;font-size:1.1rem':'')+'">'+title+'</h1>'+(opts.center?'<span style="width:44px;flex:none"></span>':'')+((opts.back&&!opts.gear)||opts.cancel?(opts.cancel?'<button class="hbtn" data-go="home" aria-label="Cancel">\u2715</button>':''):'<button class="hbtn" data-go="appset" data-from="'+S.screen+'" aria-label="App settings">'+ic('gear')+'</button>')+'</div>';
-  var sub=opts.sub?'<div class="hsub"><span>Date: <b>'+(S.day?mdShort(S.day)+', 2026':'Oct 27, 2026')+'</b></span><span>Site: <b>'+esc(S.x.site)+'</b></span></div>':'';
+  var sub=opts.sub?'<div class="hsub"><span>Date: <b>'+(S.day?mdShort(S.day)+', 2026':mdShort(TODAY)+', 2026')+'</b></span><span>Site: <b>'+esc(S.x.site)+'</b></span></div>':'';
   return '<header class="hdr">'+row+sub+(opts.chips?CHIPS:'')+'</header>';
 }
 function testHeader(){return '<header class="hdr tsth"><div class="hrow"><button class="hbtn" data-go="'+(S.pback||'upcoming')+'" aria-label="Back">'+ic('back')+'</button><h1 style="flex:1">'+esc(pfName(S.pi)).toUpperCase()+'</h1></div><div class="hsub"><span><b>Practice only</b></span><span>Not a real day</span></div>'+CHIPS+'</header>';}
@@ -1131,7 +1133,7 @@ function nbtn(p,label,attr){return '<button '+attr+'>'+nIcon(p)+'<span>'+label+'
 var DKEYS=['recvL','recvS','sealL','sealS','openL','openS','m0pub','m0prot','m1pub','m1prot','prov','spoil','epoll'];
 function prevISO(iso){var d=new Date(iso+'T12:00:00');d.setDate(d.getDate()-1);return d.toISOString().slice(0,10);}
 function dayFilled(iso){var h=HIST[iso];return h?DKEYS.filter(function(k){return h[k]!==''&&h[k]!=null;}).length:0;}
-function dayStatusMap(e){var map={},d=new Date(e.start+'T12:00:00'),end=new Date(e.end+'T12:00:00');while(d<=end){var iso=d.toISOString().slice(0,10);map[iso]=iso===TODAY?'today':iso>TODAY?'up':(dayFilled(iso)===13?'ok':dayFilled(iso)>0?'miss':'none');d.setDate(d.getDate()+1);}return map;}
+function dayStatusMap(e){var map={},d=new Date(e.start+'T12:00:00'),end=new Date(e.end+'T12:00:00');while(d<=end){var iso=d.toISOString().slice(0,10);map[iso]=iso===TODAY?'today':iso>TODAY?'up':(dayFilled(iso)===13?'ok':(dayFilled(iso)>0||(HIST[iso]&&HIST[iso]._keep))?'miss':'none');d.setDate(d.getDate()+1);}return map;}
 function pdVals(iso){var sv=S.v,sy=YEST;S.v=Object.assign({},HIST[iso]||{});ensureKeys();YEST=prevISO(iso);var m=model();var r=m.recT.map(function(x){return x.v==null?'*':x.v;});S.v=sv;YEST=sy;return r;}
 var COLS={};function getCol(k){return COLS[k]||(COLS[k]={inputs:false,totals:false,verify:false,report:false});}
 function enterPast(d){if(!S.pastD){S.vToday=S.v;S.colSave=S.col;}S.pastD=d;S.v=Object.assign({},HIST[d]||{});ensureKeys();YEST=prevISO(d);S.col=getCol(d);S.day=d;}
@@ -1140,11 +1142,14 @@ function pfName(i){return S.pf.length>1?'Practice Form '+(i+1):'Practice Form';}
 function pfCount(p){return DKEYS.filter(function(k){return p.v&&p.v[k]!==''&&p.v[k]!=null;}).length;}
 function enterTest(){if(S.testM)return;if(!S.pf.length)S.pf.push(newPF());if(!S.pf[S.pi])S.pi=0;S.tv=S.pf[S.pi].v;S.tx=S.pf[S.pi].x;if(!S.pastD){S.vToday=S.v;S.colSave=S.col;}S.xToday=S.x;S.testM=true;S.v=S.tv;ensureKeys();S.x=S.tx;S.col=getCol('test');S.tmade=true;}
 function leaveTest(){if(S.testM){S.tv=S.v;S.tx=S.x;if(S.pf[S.pi]){S.pf[S.pi].v=S.tv;S.pf[S.pi].x=S.tx;}S.v=S.vToday;S.x=S.xToday;S.col=S.colSave;S.testM=false;S.vToday=null;S.xToday=null;S.colSave=null;}}
-function leavePast(){if(S.pastD){var hv=Object.assign({},S.v),any=DKEYS.some(function(k){return hv[k]!==''&&hv[k]!=null;});if(any)HIST[S.pastD]=hv;else delete HIST[S.pastD];S.v=S.vToday;S.col=S.colSave;S.pastD=null;S.vToday=null;YEST='2026-10-26';}}
+function qfName(q){var same=S.qf.filter(function(x){return x.date===q.date;});return 'Quick Add form'+(same.length>1?' '+(same.indexOf(q)+1):'');}
+function enterQuick(i){var q=S.qf[i];if(!q)return;S.vToday=S.v;S.xToday=S.x;S.colSave=S.col;S.qm=true;S.qi=i;S.v=q.v;ensureKeys();S.x=q.x;S.col=getCol('q'+q.id);S.day=q.date;YEST=prevISO(q.date);}
+function leaveQuick(){if(S.qm){var q=S.qf[S.qi];if(q){q.v=S.v;q.x=S.x;}S.v=S.vToday;S.x=S.xToday;S.col=S.colSave;S.qm=false;S.vToday=null;S.xToday=null;S.colSave=null;YEST=prevISO(TODAY);}}
+function leavePast(){if(S.pastD){var hv=Object.assign({},S.v),any=DKEYS.some(function(k){return hv[k]!==''&&hv[k]!=null;});var kp=HIST[S.pastD]&&HIST[S.pastD]._keep;if(kp)hv._keep=true;if(any||kp)HIST[S.pastD]=hv;else delete HIST[S.pastD];S.v=S.vToday;S.col=S.colSave;S.pastD=null;S.vToday=null;YEST=prevISO(TODAY);}}
 function openForm(iso,back){S.pendIso=iso!==TODAY?iso:null;go('today',back||'');}
 var DAYS=[['2026-10-19','Mon',19,'ok'],['2026-10-20','Tue',20,'miss'],['2026-10-21','Wed',21,'miss'],['2026-10-22','Thu',22,'miss'],['2026-10-23','Fri',23,'ok'],['2026-10-24','Sat',24,'ok'],['2026-10-25','Sun',25,'ok'],['2026-10-26','Mon',26,'ok'],['2026-10-27','Tue',27,'today'],['2026-10-28','Wed',28,'up'],['2026-10-29','Thu',29,'up'],['2026-10-30','Fri',30,'up']];
 var STL={ok:'Complete',miss:'Missing data',none:'No form yet',today:'In progress',up:'Upcoming'};
-function daysSaved(e){return Object.keys(HIST).filter(function(d){return d>=e.start&&d<=e.end&&dayFilled(d)>0;}).length;}
+function daysSaved(e){return Object.keys(HIST).filter(function(d){return d>=e.start&&d<=e.end&&(dayFilled(d)>0||HIST[d]._keep);}).length;}
 var CK='<svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 function mark(s){return s==='ok'?CK:s==='miss'?'!':s==='today'?'●':'';}
 function mdIso(iso){return mdShort(iso);}
@@ -1194,7 +1199,7 @@ function homeHero(){
 }
 function homeNow(){
   var e=actE(),inR=e.start<=TODAY&&TODAY<=e.end;
-  if(inR)return '<section class="hs now"><div class="now-t"><span>Today</span><b>Tuesday, Oct 27</b><small>Form not started yet</small></div><button class="soft-go" data-act="opentoday" data-back="home">Open today’s form</button></section>';
+  if(inR)return '<section class="hs now"><div class="now-t"><span>Today</span><b>'+dLong(TODAY).replace(/, \d{4}$/,'')+'</b><small>Form not started yet</small></div><button class="soft-go" data-act="opentoday" data-back="home">Open today’s form</button></section>';
   var up=e.start>TODAY;
   return '<section class="hs now"><div class="now-t"><span>'+(up?'Next form':'Election ended')+'</span><b>'+mdShort(up?e.start:e.end)+', 2026</b><small>'+(up?'Your form will be ready on this day.':'Past days are still available to view.')+'</small></div>'+(up?'':'<button class="soft-go" data-act="eopen" data-i="'+S.act+'">View Event Recap</button>')+'</section>';
 }
@@ -1247,9 +1252,16 @@ function testModal(){var conf=S.tdConfirm||null,sel=S.testPicked||null,an=S.dshA
 function homeEmpty(){
   return '<div class="hm-wrap"><div class="hero" style="padding-bottom:0"><div class="hero-top"><img src="'+PH.wwhite+'" alt="Williamson County, Texas"><button class="hbtn" data-go="appset" data-from="home" aria-label="App settings">'+ic('gear')+'</button></div><div class="hero-tx"><div class="wz-eye" style="margin-bottom:8px">Williamson County Elections</div><h1>Welcome</h1><p>No election events yet</p></div></div><div class="hquote"><p>“'+homeQuote()[0]+'”</p><small>'+homeQuote()[1]+'</small></div><div class="hsheet'+(S.hcol?' shut':'')+'" id="hsheet"><div class="hgrab" id="hgrab" role="button" tabindex="0" aria-label="Collapse or expand" aria-expanded="'+!S.hcol+'"><i></i></div><div class="hbody" id="hbody"><section class="hs now"><div class="now-t"><span>Get started</span><b>Add your first election event</b><small>Set up your site, dates, and logistics.</small></div><button class="soft-go" data-go="wizard">Add election event</button></section><section class="hs"><h3>Your election events</h3><p class="el-none">No election events yet.</p></section>'+homeFoot().replace('<button class="hlink2" data-go="wizard">+ Add election event</button>','')+'</div></div></div>';
 }
+function qfBubble(q,back){var k=S.qf.indexOf(q);return '<button class="upc-test qfb" data-act="qopen" data-i="'+k+'" data-back="'+back+'"><span><b>'+dLong(q.date)+'</b><small>'+qfName(q)+' \u00b7 '+DKEYS.filter(function(x){return q.v[x]!==''&&q.v[x]!=null;}).length+' of 13 entered \u00b7 Saved</small></span><svg class="i chv" viewBox="0 0 24 24" style="width:18px;height:18px"><path d="M9 6l6 6-6 6"/></svg></button>';}
+function qImportPrompt(ni){var nE=S.elects[ni],inQ=S.qf.filter(function(q){return q.date>=nE.start&&q.date<=nE.end;});if(!inQ.length)return;S.qimpE=ni;S.modal='<div class="sheet pop"><div class="popc" data-act="noop"><h3>Import your Quick Add form'+(inQ.length>1?'s':'')+'?</h3><p>You have '+inQ.length+' Quick Add form'+(inQ.length>1?'s':'')+' from '+inQ.map(function(q){return dShort(q.date);}).filter(function(v,k,a){return a.indexOf(v)===k;}).join(', ')+'. Add '+(inQ.length>1?'them':'it')+' to this election event? Nothing already saved will be overwritten.</p><button class="pop-go" data-act="qimp">Yes, import</button><button class="pop-link" data-act="qno">No, keep separate</button></div></div>';}
 function emptyScreen(){var ti={today:'Today',days:'Past Days',election:'Election Settings',upcoming:'Upcoming'}[S.screen]||'';
-  return '<div class="fixbar dltop"><span class="dlsp"></span><h1>'+ti+'</h1><button class="hbtn" data-go="appset" data-from="home" aria-label="App settings">'+ic('gear')+'</button></div><div class="dlx"><div class="dlcard"><div class="dlitem"><div class="dlhead"><b>No election event yet</b></div><div class="dld">Add an election event to use this page.</div><button class="dlb" data-go="wizard">Add election event</button></div></div></div>';}
-function isNoOpen(){return S.elects.length&&S.screen==='today'&&!S.pastD&&!S.testM&&!S.elects.some(function(e){return eStatus(e)==='In progress';});}
+  var extra='';
+  if(S.screen==='today'){var tq=S.qf.filter(function(q){return q.date===TODAY;});
+    if(tq.length<2)extra+='<div class="dlcard" style="margin-top:14px"><div class="dlitem"><div class="dlhead"><b>Quick Add</b></div><div class="dld">Add a ballot counter form for today.</div><button class="dlb" data-act="qadd">Add Form</button></div></div>';
+    if(tq.length)extra+='<h3 class="upc-h" style="margin:26px 0 10px">Your forms</h3>'+tq.map(function(q){return qfBubble(q,'today');}).join('');}
+  if(S.screen==='days'){var oq=S.qf.filter(function(q){return q.date<TODAY;});if(oq.length)extra+='<h3 class="upc-h" style="margin:26px 0 10px">Unused forms</h3>'+oq.map(function(q){return qfBubble(q,'days');}).join('');}
+  return '<div class="fixbar dltop"><span class="dlsp"></span><h1>'+ti+'</h1><button class="hbtn" data-go="appset" data-from="home" aria-label="App settings">'+ic('gear')+'</button></div><div class="dlx"><div class="dlcard"><div class="dlitem"><div class="dlhead"><b>No election event yet</b></div><div class="dld">Add an election event to use this page.</div><button class="dlb" data-go="wizard">Add election event</button></div></div>'+extra+'</div>';}
+function isNoOpen(){return S.elects.length&&S.screen==='today'&&!S.pastD&&!S.testM&&!S.qm&&!S.elects.some(function(e){return eStatus(e)==='In progress';});}
 function noOpenScreen(){var n=S.pf.length;return '<div class="fixbar dltop"><span class="dlsp"></span><h1>Today</h1><button class="hbtn" data-go="appset" data-from="home" aria-label="App settings">'+ic('gear')+'</button></div><div class="dlx"><div class="dlcard"><div class="dlitem"><div class="dlhead"><b>No election is open today</b></div><div class="dld">If you want to use a practice form, you can '+(n?'open one below or create another':'create one below')+'. Nothing you enter on it counts toward an election.</div>'+S.pf.map(function(p,k){return '<button class="dlb" data-act="ptopen" data-i="'+k+'">Open '+esc(pfName(k))+'</button>';}).join('')+'<button class="dlb" data-act="mktest">'+(n?'Create Another Practice Form':'Create Practice Form')+'</button></div></div></div>';}
 function homeFoot(){
   return '<div class="hfoot"><button class="hlink2" data-go="wizard">+ Add election event</button><button class="hlink" data-act="testdata">Demo Mode</button></div>';
@@ -1355,9 +1367,9 @@ var MABB={January:'Jan.',February:'Feb.',March:'Mar.',April:'Apr.',August:'Aug.'
 function abbrM(s){return String(s).replace(/\b(January|February|March|April|August|September|October|November|December)\b/g,function(m){return MABB[m];});}
 function days(){
   var e=actE(),inR=e.start<=TODAY&&TODAY<=e.end,m1=new Date(e.start+'T12:00:00').getMonth(),m2=new Date(e.end+'T12:00:00').getMonth(),mt=m1===m2?MONF[m1]:MONF[m1]+' – '+MONF[m2];
-  var today=inR?'<div class="pdtoday"><div class="pdtd"><small>Tue</small><b>27</b></div><div class="pdtt"><b>Today</b><span><i class="pdtsq"></i>In progress</span></div><button class="soft-go pdgo" data-act="opentoday" data-back="days">Open form</button></div>':'';
+  var today=inR?'<div class="pdtoday"><div class="pdtd"><small>'+dShort(TODAY).slice(0,3)+'</small><b>'+(+TODAY.slice(8))+'</b></div><div class="pdtt"><b>Today</b><span><i class="pdtsq"></i>In progress</span></div><button class="soft-go pdgo" data-act="opentoday" data-back="days">Open form</button></div>':'';
   var cal='<div class="pdcw'+(S.pdCal?' shut':'')+'" id="pdcw"><div class="cal2"><button class="calmo pdmo" data-act="pdcalt" aria-label="Show or hide the calendar">'+mt+'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>'+calCells(e,'pdcal')+'</div><div class="legend2"><span><i class="lg2k">'+CK+'</i>Complete</span><span><i class="lg2 miss"></i>Needs a look</span><span><i class="lg2 none"></i>No data</span><span><i class="lg2 today"></i>Today</span><span><i class="lg2 up"></i>Upcoming</span></div></div>';
-  return '<div class="pd-wrap"><div class="hero pdhero" style="padding-bottom:22px"><div class="hero-top"><span style="height:34px"></span><button class="hbtn" data-go="appset" data-from="days" aria-label="App settings">'+ic('gear')+'</button></div><div class="hero-tx"><div class="wz-eye" style="margin-bottom:8px">Williamson County Elections</div><h1>'+esc(abbrM(e.title))+'</h1><p>'+esc(e.type)+' \u00b7 '+rangeTxt(e)+' \u00b7 Site '+esc(e.site)+'</p></div></div><div class="pd-sheet" id="pdlist"><div class="pd-fixed">'+today+cal+'</div><div class="pd-list"><h3>Previous days</h3>'+pfCardHTML(e)+(function(r){return r?'<div class="pd-card">'+r+'</div>':'<p class="pd-note">No forms have been created or accessed during this event window. You can still create and backfill a form using the button below.</p>';})(pdRows(e))+'<div class="hfoot"><button class="hlink2" data-act="pdadd">+ Add a prior day</button></div><div class="pd-del"><button class="hlink" data-act="toast" data-m="Nothing deleted yet (mockup)">Recently deleted (0)</button></div></div></div></div>';
+  return '<div class="pd-wrap"><div class="hero pdhero" style="padding-bottom:22px"><div class="hero-top"><span style="height:34px"></span><button class="hbtn" data-go="appset" data-from="days" aria-label="App settings">'+ic('gear')+'</button></div><div class="hero-tx"><div class="wz-eye" style="margin-bottom:8px">Williamson County Elections</div><h1>'+esc(abbrM(e.title))+'</h1><p>'+esc(e.type)+' \u00b7 '+rangeTxt(e)+' \u00b7 Site '+esc(e.site)+'</p></div></div><div class="pd-sheet" id="pdlist"><div class="pd-fixed">'+today+cal+'</div><div class="pd-list"><h3>Previous days</h3>'+pfCardHTML(e)+(function(r){return r?'<div class="pd-card">'+r+'</div>':'<p class="pd-note">No forms have been created or accessed during this event window. You can still create and backfill a form using the button below.</p>';})(pdRows(e))+'<div class="hfoot"><button class="hlink2" data-act="pdadd">+ Add a prior day</button></div>'+(S.qf.length?'<h3 class="pd-uh">Unused forms</h3><div class="pd-card">'+S.qf.map(function(q,k){return '<div class="pdr pf"><div class="pdh" data-act="qopen" data-i="'+k+'" data-back="days" tabindex="0" role="button"><span class="pds pfs" aria-hidden="true">Q</span><div class="pdx"><b>'+dLong(q.date)+'</b><div class="pdl"><small>'+qfName(q)+' \u00b7 Not in an event</small></div></div></div></div>';}).join('')+'</div>':'')+'<div class="pd-del"><button class="hlink" data-act="toast" data-m="Nothing deleted yet (mockup)">Recently deleted (0)</button></div></div></div></div>';
 }
 function dlitem(title,desc,ft,label,msg,extra,ft2){
   if(!label)return '<div class="dlitem"><div class="dlhead"><b>'+title+'</b>'+(extra||'')+'</div><div class="dld">'+desc+'</div></div>';
@@ -1436,7 +1448,7 @@ function appset(){
   '<div class="card about"><span class="lbl">A calculator, nothing more</span><ul><li>It does not connect to voting machines, poll books, touchpads or any election system.</li><li>It does not count or store ballots or voter information. It only does arithmetic on the numbers you type in.</li><li>It is not an official election tool and is not connected to any election office. Always follow your official procedures and forms.</li></ul></div>'+
   '<h2 class="plain">Definitions</h2><div class="card about boxed"><div class="formula"><b>ePoll</b><br>Number read from the touchpad check-in machine. Represents number of voter check-ins.</div><div class="formula"><b>Public Count</b><br>Number read from public count on machine.</div><div class="formula"><b>Protected Count</b><br>Number read from protected count on machine.</div><div class="formula"><b>Ballots Received</b><br>Total number of ballots received at the polling location that day. Includes both Large Ballots and Small Cards.</div><div class="formula"><b>Sealed Ballots</b><br>Ballots that remained in original packaging. Never opened.</div><div class="formula"><b>Unsealed Ballots</b><br>Ballots that were removed from their packaging but never used.</div></div>'+
   '<div class="card about boxed"><span class="lbl">Calculation Definitions</span><div class="formula"><b>Lifetime</b><br>Cumulative total from Day 1 of Election Cycle</div><div class="formula"><b>Lifetime Change</b><br>Total change since Day 1 of Election Cycle</div><div class="formula"><b>Change from Yesterday</b><br>Difference in value from yesterday to today. A way to look at daily changes in a running total throughout Election Cycle.</div></div>'+
-  dlDanger()+'<p class="aps-about">Created by <a href="https://www.backstagestrategy.com" target="_blank" rel="noopener">Backstage Strategy</a><br>\u00a9 2025 Backstage Strategy. All rights reserved.<br>Demo build v85</p>'+'</section></div></div>';
+  dlDanger()+'<p class="aps-about">Created by <a href="https://www.backstagestrategy.com" target="_blank" rel="noopener">Backstage Strategy</a><br>\u00a9 2025 Backstage Strategy. All rights reserved.<br>Demo build v86</p>'+'</section></div></div>';
 }
 var SCREENS={test:today,upcoming:upcoming,splash:splash,login:login,home:home,wizard:wizard,today:today,days:days,download:download,election:election,appset:appset};
 var BAR=['home','days','today','download','election'],BARL={home:'Home',today:'Today',days:'Past Days',download:'Download',election:'Election'};
@@ -1461,10 +1473,10 @@ function depthOf(s){if(s==='today')return S.testM?3:S.fmBack?2:1;if(s==='test')r
 var BGS=['download','test','splash','login','home','wizard','election','upcoming','days','appset'];
 function render(){
   var ap=$('#app'),same=S.prevScreen===S.screen,st=ap.scrollTop,hb0=$('#hbody'),hst=hb0?hb0.scrollTop:0,pl0=$('#pdlist'),pst=pl0?pl0.scrollTop:0;var dp=depthOf(S.screen),pd=S.prevDepth==null?dp:S.prevDepth,nav=(!same&&(dp>=2||pd>=2)&&dp!==pd)?(dp>pd?'navf':'navb'):'';S.prevDepth=dp;ap.classList.remove('navf','navb');if(nav&&S.screen!=='appset'){ap.classList.add(nav);}S.prevScreen=S.screen;
-  var st2=same||(S.screen==='home'&&S.homeSeen)||S.screen==='days';ap.classList.toggle('still',st2);if(S.screen==='home')S.homeSeen=true;ap.classList.toggle('spmodal',S.screen==='splash'&&!!S.modal);ap.classList.toggle('bgon',BGS.indexOf(S.screen)>-1||(!S.elects.length&&S.screen==='today')||!!isNoOpen());
-  $('#bgph').classList.toggle('dim',!!isNoOpen()||(!S.elects.length&&['today','days','election','upcoming'].indexOf(S.screen)>-1)||S.screen==='download'||S.screen==='election'||S.screen==='upcoming'||S.screen==='test'||S.screen==='appset');
+  var st2=same||(S.screen==='home'&&S.homeSeen)||S.screen==='days';ap.classList.toggle('still',st2);if(S.screen==='home')S.homeSeen=true;ap.classList.toggle('spmodal',S.screen==='splash'&&!!S.modal);ap.classList.toggle('bgon',BGS.indexOf(S.screen)>-1||(!S.elects.length&&S.screen==='today'&&!S.qm)||!!isNoOpen());
+  $('#bgph').classList.toggle('dim',!!isNoOpen()||(!S.elects.length&&['today','days','election','upcoming'].indexOf(S.screen)>-1&&!S.qm)||S.screen==='download'||S.screen==='election'||S.screen==='upcoming'||S.screen==='test'||S.screen==='appset');
   var key=S.photo||'courthouse';if(S.bgKey!==key){S.bgKey=key;$('#bgph').setAttribute('style',phStyle('linear-gradient(180deg,rgba(14,38,78,.58) 0%,rgba(14,38,78,.76) 50%,rgba(10,28,60,.93) 100%)'));}
-  var emp=!S.elects.length&&['today','days','election','upcoming'].indexOf(S.screen)>-1;
+  var emp=!S.elects.length&&['today','days','election','upcoming'].indexOf(S.screen)>-1&&!(S.screen==='today'&&S.qm);
   var noOpen=!emp&&!!isNoOpen();S.noOpen=noOpen;
   ap.innerHTML=emp?emptyScreen():noOpen?noOpenScreen():SCREENS[S.screen]();
   if(same){ap.scrollTop=st;var hb1=$('#hbody');if(hb1)hb1.scrollTop=hst;var pl1=$('#pdlist');if(pl1)pl1.scrollTop=pst;}
@@ -1491,11 +1503,11 @@ function go(s,fm){
   if(PIN_OFF&&s==='login')s=S.screen==='splash'?'home':'splash';
   var cur=S.screen,od=depthOf(cur),ap=$('#app');
   if(ap)S.scr[cur]=[ap.scrollTop,($('#hbody')||{}).scrollTop||0,($('#pdlist')||{}).scrollTop||0];
-  leavePast();leaveTest();S.day='';S.fmBack=fm||'';S.pdMenu=null;if(s==='days'&&S.screen!=='today')S.pdOpen=null;
+  leavePast();leaveTest();leaveQuick();S.day='';S.fmBack=fm||'';S.pdMenu=null;if(s==='days'&&S.screen!=='today')S.pdOpen=null;
   var vc=S.viewClosed!=null&&S.viewClosed===S.act&&(s==='days'||s==='download'||(s==='today'&&S.pendIso));if(!vc)S.viewClosed=null;
   var sw=null;if(!vc&&S.elects.length&&['home','today','days','download'].indexOf(s)>-1&&S.act!==liveIdx()){switchE(liveIdx());sw=S.elects[S.act].type;}
   if(s!=='home')S.fresh=false;
-  if(s==='today'&&S.pendIso)enterPast(S.pendIso);S.pendIso=null;
+  if(s==='today'&&S.pendIso)enterPast(S.pendIso);S.pendIso=null;if(s==='today'&&S.pendQ!=null)enterQuick(S.pendQ);S.pendQ=null;
   S.screen=s;S.sheet=false;S.sheetDay=null;S.modal='';if(s==='login')S.pin='';
   if(s==='wizard'){if(S.wzKeep)S.wzKeep=false;else S.wz=newWz();}
   if(s==='test'){enterTest();S.screen='test';}
@@ -1591,6 +1603,16 @@ document.addEventListener('click',function(e){
     else openForm(iso,'home');}
   else if(act==='pdnone'){S.modal=noneModal(a.dataset.d);render();}
   else if(act==='dayopen2'){S.modal='';openForm(a.dataset.d,'days');}
+  else if(act==='qadd'){var tq=S.qf.filter(function(q){return q.date===TODAY;});if(tq.length>=2)return;S.qf.push({id:Date.now(),date:TODAY,v:{},x:{comments:'',notes:'',site:''}});S.pendQ=S.qf.length-1;go('today','today');}
+  else if(act==='qopen'){S.pendQ=+a.dataset.i;go('today',a.dataset.back||'today');}
+  else if(act==='qimp'){var ne=S.elects[S.qimpE],kept=0,done=0,used={};function hasData(o){return DKEYS.some(function(k){return o&&o[k]!==''&&o[k]!=null;});}
+    S.qf=S.qf.filter(function(q){if(q.date<ne.start||q.date>ne.end)return true;
+      if(used[q.date]){kept++;return true;}
+      if(q.date===TODAY){if(hasData(S.v)||S.todayKeep){kept++;return true;}S.v=Object.assign({},q.v);ensureKeys();S.todayKeep=true;}
+      else{if(HIST[q.date]&&(dayFilled(q.date)>0||HIST[q.date]._keep)){kept++;return true;}HIST[q.date]=Object.assign({},q.v,{_keep:true});}
+      used[q.date]=1;done++;return false;});
+    S.modal='';render();toast(done+' form'+(done===1?'':'s')+' imported'+(kept?' \u00b7 '+kept+' kept in Unused forms':''));}
+  else if(act==='qno'){S.modal='';render();toast('Kept in Unused forms on Past Days');}
   else if(act==='dayopen'){S.modal='';openForm(a.dataset.d,'home');}
   else if(act==='opentoday'){openForm(TODAY,a.dataset.back);}
   else if(act==='quote'){S.q=(S.q||0)+1;render();}
@@ -1657,7 +1679,7 @@ function wzNext(){
   if(S.wz.step===5+S.wz.d.machines){
     var d=S.wz.d,early=d.type!=='day',any=Object.keys(d.counts).some(function(k){return d.counts[k]!=='';});
     S.elects.push({id:S.elects.length+1,title:'Election Event \u00b7 '+mdShort(d.start),type:early?'Early Voting':'Election Day',site:d.site,official:d.official,start:d.start,end:early?d.end:d.start,machines:d.machines,setup:any,models:Array.apply(null,Array(d.machines)).map(function(_,k){return (d.models&&d.models[k]!=null)?d.models[k]:null;})});
-    var ni=S.elects.length-1;switchE(ni);if(eStatus(S.elects[ni])==='Upcoming'){S.peek=ni;go('upcoming');toast('Election event created');return;}go('home');S.fresh=true;render();toast('Election event created');return;
+    var ni=S.elects.length-1;switchE(ni);var nE=S.elects[ni];if(eStatus(nE)==='Upcoming'){S.peek=ni;go('upcoming');}else{go('home');S.fresh=true;}qImportPrompt(ni);render();toast('Election event created');return;
   }
   wzGo(1);
 }
