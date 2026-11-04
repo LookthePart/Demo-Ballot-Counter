@@ -444,7 +444,7 @@ body{background:var(--pg);color:var(--pg-fg);font-family:var(--f);margin:0;paddi
 .pd-hd h1{margin:0;font-size:1.2rem;font-weight:800;color:#fff}
 .pdhero .hero-tx h1{font-size:1.2rem;white-space:nowrap;margin-bottom:6px}.pdhero{padding-top:14px}.pd-sp{width:44px}.pd-hd{background:#1B2F52}.pd-hero{flex:none;text-align:center;color:#fff;padding:14px 20px 26px}.pd-hero .wz-eye{margin-bottom:6px}.pd-hero h2{margin:0 0 4px;font-size:1.15rem;font-weight:800;line-height:1.15;color:#fff}.pd-hero p{margin:0;font-size:.85rem;color:rgba(255,255,255,.85)}.pd-ttl{text-align:center;line-height:1.15}.pd-ttl small{display:block;margin-top:2px;font-size:.72rem;font-weight:500;color:rgba(255,255,255,.82)}
 .pd-hd .hbtn{background:none;border:0;color:#fff}.pd-hd .hbtn .i{width:26px;height:26px;fill:none;stroke:currentColor;stroke-width:1.7}
-.pd-sheet{flex:1;min-height:0;display:flex;flex-direction:column;background:#f6f8fb;border-radius:22px 22px 0 0;box-shadow:0 -6px 24px rgba(10,28,60,.18)}
+.pd-sheet{flex:1;min-height:0;display:flex;flex-direction:column;overflow-y:auto;background:#f6f8fb;border-radius:22px 22px 0 0;box-shadow:0 -6px 24px rgba(10,28,60,.18)}
 .pd-fixed{flex:none;padding:16px 16px 0}
 .pdtoday{display:flex;align-items:center;gap:12px;background:#fff;border:2px solid #7aa63a;border-radius:14px;padding:10px 12px;margin-bottom:12px}
 .pdtd{width:42px;text-align:center;line-height:1.1}.pdtd small{display:block;font-size:.6rem;letter-spacing:.1em;text-transform:uppercase;color:#6b7788}.pdtd b{font-size:1.15rem;color:#1b2f52}
@@ -455,7 +455,8 @@ button.pdmo{display:flex;align-items:center;justify-content:center;gap:6px;width
 .pdmo{position:relative}.pdmo svg{position:absolute;right:12px;top:50%;margin-top:-8px;width:16px;height:16px;transition:transform .25s}
 .pdcw.shut .pdmo svg{transform:rotate(-90deg)}
 .pdcw.shut .cal2>*:not(.calmo){display:none}.pdcw.shut .legend2{display:none}.pdcw.shut .cal2{padding:10px 12px}.pdcw.shut .calmo{margin:0}
-.pd-list{flex:1;min-height:0;overflow-y:auto;padding:0 16px 100px;position:relative}
+.pd-list{padding:0 16px 100px;position:relative;flex:1 0 auto;display:flex;flex-direction:column}.pd-list>*{flex:none}.pd-del{margin-top:auto;padding-top:28px;display:flex;justify-content:center}.pf-card{margin-bottom:14px}.pdr.pf .pds.pfs{display:inline-flex;align-items:center;justify-content:center;width:26px;height:26px;border-radius:50%;border:1.5px solid #8793a5;color:#6b7788;font:800 .75rem var(--f)}.pftag{font-style:normal;font-size:.68rem;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:#6b7788;background:#eef1f6;border-radius:6px;padding:3px 7px;margin-right:4px}.pfdel{color:#9a3b3b}
+.pd-note{margin:2px 2px 22px;color:#6b7788;font-size:.8rem;line-height:1.5;text-align:center}
 .pd-list>h3{position:sticky;top:0;z-index:3;margin:0;padding:16px 2px 8px;background:#f6f8fb;font-size:.78rem;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:#6b7788}
 .pd-card{background:#fff;border:1px solid #dfe5ee;border-radius:14px;position:relative}
 .pdr{position:relative;border-top:1px solid #edf0f5}.pdr:first-child{border-top:0}
@@ -573,6 +574,8 @@ button.pdmo{display:flex;align-items:center;justify-content:center;gap:6px;width
 .dlx.aps .mvp #s-settings .aps-about,.dlx.aps .mvp #s-settings .aps-about a{font-size:.62rem;line-height:1.5;color:rgba(255,255,255,.6)!important;text-align:center;margin:26px 0 0;font-weight:400;text-decoration:none}
 .dlx.aps .mvp #s-settings .aps-about a{text-decoration:underline;font-weight:400}
 .tdopt{display:block;width:100%;text-align:left;margin-top:10px;padding:12px 14px;border:1.5px solid #cfd7e3;border-radius:10px;background:#fff;color:#1b2f52;cursor:pointer;font:inherit}.tdopt b{display:block;font-size:.95rem}.tdopt small{display:block;margin-top:3px;font-size:.78rem;line-height:1.4;color:#6b7788}.tdopt.on{border-color:#7aa63a;background:#f1f6e8}.popc p.td-n{margin:26px 0 0;font-size:.6rem;line-height:1.4;color:#8793a5;text-align:center}.popc p.td-d{margin:8px 0 0;font-size:.6rem;line-height:1.4;color:#8793a5;text-align:center}
+.upc-dl{margin:0 0 26px;border-top:1px solid rgba(255,255,255,.18)}.upc-dl div{display:flex;justify-content:space-between;gap:12px;padding:12px 2px;border-bottom:1px solid rgba(255,255,255,.18)}.upc-dl dt{color:rgba(255,255,255,.75);font-size:.9rem}.upc-dl dd{margin:0;font-weight:700;text-align:right}
+.upc-lk{display:flex;flex-direction:column;align-items:center;gap:0}.upc-lk button{background:none;border:0;color:rgba(255,255,255,.8);font:600 .9rem var(--f);text-decoration:underline;cursor:pointer;padding:8px}
 .upc-del{display:flex;justify-content:flex-end;margin-top:14px}.upc-del button{border:0;background:none;color:#c0392b;padding:6px;cursor:pointer;line-height:0}
 .sheet.pop.sp{background:transparent}
 .app.spmodal .splash .tiny,.app.spmodal .splash .demo{visibility:hidden}
@@ -663,10 +666,11 @@ button.pdmo{display:flex;align-items:center;justify-content:center;gap:6px;width
 .cdk{position:absolute;left:50%;bottom:1px;transform:translateX(-50%);color:#5f8a28;display:flex}
 .cdk svg{width:9px;height:9px}
 .cdd{position:absolute;bottom:3px;left:50%;margin-left:-2px;width:4px;height:4px;border-radius:50%;background:#c9a24a}
-.legend2{display:flex;justify-content:center;gap:4px 12px;margin-top:6px;font-size:.66rem;color:#8793a5}
+.legend2{display:flex;flex-wrap:wrap;justify-content:center;gap:4px 8px;margin-top:6px;font-size:.62rem;color:#8793a5}
 .lg2{display:inline-block;width:8px;height:8px;border-radius:2px;margin-right:4px;border:1px solid #cfd7e3;background:#fff}
 
-.lg2k{display:inline-flex;margin-right:4px;color:#5f8a28;vertical-align:-1px}.lg2k svg{width:9px;height:9px}.lg2.today{background:#fff;border:2px solid #7aa63a}.lg2.up{border:1.5px dashed #aab5c6}.lg2.miss{background:#c9a24a;border-color:#c9a24a;width:9px;height:9px;border-radius:50%}
+.lg2k{display:inline-flex;margin-right:4px;color:#5f8a28;vertical-align:-1px}.lg2k svg{width:9px;height:9px}.lg2.today{background:#fff;border:2px solid #7aa63a}.lg2.up{border:1.5px dashed #aab5c6}.lg2.none{background:#f1f3f7;border-color:#cfd7e3}.lg2.miss{background:#c9a24a;border-color:#c9a24a;width:9px;height:9px;border-radius:50%}
+.el-gap{margin-top:22px!important}.el-none{margin:0;color:#6b7788;font-size:.95rem}.pdr.none{border-top:0!important;padding:6px 10px}.pdr.none .pdh{border:1.5px dashed #b9c3d2;border-radius:12px;background:transparent}.pdr.none .pdx b,.pdr.none .pdl small{color:#8f9aab}.cd.none{background:#f6f8fb;color:#8793a5}
 .el-list{background:#fff;border:1px solid #dfe5ee;border-radius:14px;overflow:hidden}
 .el-r{display:flex;align-items:center;justify-content:space-between;gap:10px;width:100%;padding:13px 14px;background:none;border:0;border-top:1px solid #edf0f5;text-align:left;font:inherit;color:#1b2f52;cursor:pointer}
 .el-r:first-child{border-top:0}
@@ -867,12 +871,12 @@ var S={dev:'',exp:{raw:{ev:{0:true,1:false},days:'all',from:'2026-10-19',to:'202
   x:{site:'GAX',notes:'',comments:''},
   v:{}};
 var INIT=JSON.stringify({elects:S.elects,e:S.e,names:S.names,start:S.start,x:S.x,models:S.models,hist:HIST});
-function resetData(mode){var I=JSON.parse(INIT);
+function resetData(mode,silent){var I=JSON.parse(INIT);
   Object.keys(HIST).forEach(function(k){delete HIST[k];});
   if(mode==='sample'){Object.assign(HIST,I.hist);S.elects=I.elects;S.e=I.e;S.names=I.names;S.start=I.start;S.x=I.x;S.models=I.models;}
   else{S.elects=[];S.e={site:'',off:'',st:'',en:''};S.names=['Machine 1','Machine 2'];S.start={};S.x={site:'',notes:'',comments:''};S.models=[];}
-  S.act=0;S.v={};S.tv={};S.tx={comments:'',notes:'',site:S.x.site};S.tmade=false;S.upx={open:null,machines:2,counts:{},mDone:false,cDone:false};S.peek=null;S.fresh=false;S.pastD=null;S.testM=false;S.pdOpen=null;S.pdMenu=null;S.testData=mode;S.wz=newWz();
-  COLS={};S.col=getCol('today');S.homeSeen=false;ensureKeys();S.testPicked=mode;S.tdConfirm=mode;S.modal=testModal();render();}
+  S.act=0;S.v={};S.tv={};S.tx={comments:'',notes:'',site:S.x.site};S.tmade=false;S.pf=[];S.pi=0;S.upx={open:null,machines:2,counts:{},mDone:false,cDone:false};S.peek=null;S.fresh=false;S.pastD=null;S.testM=false;S.pdOpen=null;S.pdMenu=null;S.testData=mode;S.wz=newWz();
+  COLS={};S.col=getCol('today');S.homeSeen=false;ensureKeys();S.testPicked=mode;if(silent)return;S.tdConfirm=mode;S.modal=testModal();render();}
 function ensureKeys(){
   ['recvL','recvS','sealL','sealS','openL','openS','prov','spoil','epoll'].forEach(function(k){if(!(k in S.v))S.v[k]='';});
   S.names.forEach(function(_,i){['pub','prot'].forEach(function(t){var k='m'+i+t;if(!(k in S.v))S.v[k]='';});['p','u'].forEach(function(p){if(!(p+i in S.start))S.start[p+i]=p==='u'?'0':'';});});
@@ -1082,7 +1086,8 @@ function ledger(m){
   return rows.concat(one(m.paT),one(m.paL),[{k:'sec',l:'TOTALS: USED BALLOTS'}],one(m.used),cl(m.pub,'Public Count','TOTALS: Public Count'),cl(m.prot,'Protected Count','TOTALS: Protected Count'),
     [{k:'sec',l:'VERIFICATION CHECKS',ctr:1,chk:1},{k:'sec',l:'VERIFY: Voter Reconciliation (Today)'}],one(m.recT),[{k:'sec',l:'VERIFY: Voter Reconciliation (Lifetime)'}],one(m.recL),[{k:'sec',l:'VERIFY: Handcount vs Expected'}],one(m.hv));
 }
-function sheetHTML(){
+function sheetHTML(){var d=S.sheetDay;if(!d)return sheetHTML0();var sv=S.v,sy=YEST,sd=S.day;S.v=Object.assign({},HIST[d]||{});ensureKeys();YEST=prevISO(d);S.day=d;try{return sheetHTML0();}finally{S.v=sv;YEST=sy;S.day=sd;}}
+function sheetHTML0(){
   var m=model(),rows=ledger(m),one=false,two=false;
   var h='<h3>'+niceDate()+' Report – '+esc(S.x.site)+'</h3><table class="sum"><colgroup><col style="width:40%"><col style="width:20%"><col style="width:20%"><col style="width:20%"></colgroup>';
   rows.forEach(function(w){
@@ -1106,7 +1111,7 @@ function header(title,opts){
   var sub=opts.sub?'<div class="hsub"><span>Date: <b>'+(S.day?mdShort(S.day)+', 2026':'Oct 27, 2026')+'</b></span><span>Site: <b>'+esc(S.x.site)+'</b></span></div>':'';
   return '<header class="hdr">'+row+sub+(opts.chips?CHIPS:'')+'</header>';
 }
-function testHeader(){return '<header class="hdr tsth"><div class="hrow"><button class="hbtn" data-go="upcoming" aria-label="Back">'+ic('back')+'</button><h1 style="flex:1">TEST FORM</h1></div><div class="hsub"><span>Election: <b>Election Day</b></span><span>Practice only</span></div>'+CHIPS+'</header>';}
+function testHeader(){return '<header class="hdr tsth"><div class="hrow"><button class="hbtn" data-go="'+(S.pback||'upcoming')+'" aria-label="Back">'+ic('back')+'</button><h1 style="flex:1">'+esc(pfName(S.pi)).toUpperCase()+'</h1></div><div class="hsub"><span><b>Practice only</b></span><span>Not a real day</span></div>'+CHIPS+'</header>';}
 function seal(){return '<svg class="seal" viewBox="0 0 132 132" aria-hidden="true"><circle cx="66" cy="66" r="62" fill="none" stroke="#fff" stroke-width="3" opacity=".9"/><circle cx="66" cy="66" r="52" fill="none" stroke="#fff" stroke-width="1.5" stroke-dasharray="3 4" opacity=".7"/><path d="M66 30l8.4 17.3 19 2.7-13.8 13.3 3.4 18.9L66 73.4l-17 8.8 3.4-18.9L38.6 50l19-2.7z" fill="#fff"/><text x="66" y="104" text-anchor="middle" font-size="9" font-family="sans-serif" font-weight="800" letter-spacing="2" fill="#fff" opacity=".85">COUNTY SEAL</text></svg>';}
 var PHOS=[['courthouse','Courthouse','center 28%'],['palace','Palace Theatre','center 72%'],['tower','Tower','center 30%'],['flags','Flags','30% 40%'],['shop','Downtown','center 45%'],['none','No photo','']];
 function phBg(){return '';}
@@ -1126,23 +1131,28 @@ function nbtn(p,label,attr){return '<button '+attr+'>'+nIcon(p)+'<span>'+label+'
 var DKEYS=['recvL','recvS','sealL','sealS','openL','openS','m0pub','m0prot','m1pub','m1prot','prov','spoil','epoll'];
 function prevISO(iso){var d=new Date(iso+'T12:00:00');d.setDate(d.getDate()-1);return d.toISOString().slice(0,10);}
 function dayFilled(iso){var h=HIST[iso];return h?DKEYS.filter(function(k){return h[k]!==''&&h[k]!=null;}).length:0;}
-function dayStatusMap(e){var map={},d=new Date(e.start+'T12:00:00'),end=new Date(e.end+'T12:00:00');while(d<=end){var iso=d.toISOString().slice(0,10);map[iso]=iso===TODAY?'today':iso>TODAY?'up':(e.id===1&&dayFilled(iso)===13?'ok':'miss');d.setDate(d.getDate()+1);}return map;}
+function dayStatusMap(e){var map={},d=new Date(e.start+'T12:00:00'),end=new Date(e.end+'T12:00:00');while(d<=end){var iso=d.toISOString().slice(0,10);map[iso]=iso===TODAY?'today':iso>TODAY?'up':(dayFilled(iso)===13?'ok':dayFilled(iso)>0?'miss':'none');d.setDate(d.getDate()+1);}return map;}
 function pdVals(iso){var sv=S.v,sy=YEST;S.v=Object.assign({},HIST[iso]||{});ensureKeys();YEST=prevISO(iso);var m=model();var r=m.recT.map(function(x){return x.v==null?'*':x.v;});S.v=sv;YEST=sy;return r;}
 var COLS={};function getCol(k){return COLS[k]||(COLS[k]={inputs:false,totals:false,verify:false,report:false});}
 function enterPast(d){if(!S.pastD){S.vToday=S.v;S.colSave=S.col;}S.pastD=d;S.v=Object.assign({},HIST[d]||{});ensureKeys();YEST=prevISO(d);S.col=getCol(d);S.day=d;}
-function enterTest(){if(S.testM)return;if(!S.pastD){S.vToday=S.v;S.colSave=S.col;}S.xToday=S.x;S.testM=true;S.v=S.tv;ensureKeys();S.x=S.tx;S.col=getCol('test');S.tmade=true;}
-function leaveTest(){if(S.testM){S.tv=S.v;S.tx=S.x;S.v=S.vToday;S.x=S.xToday;S.col=S.colSave;S.testM=false;S.vToday=null;S.xToday=null;S.colSave=null;}}
-function leavePast(){if(S.pastD){HIST[S.pastD]=Object.assign({},S.v);S.v=S.vToday;S.col=S.colSave;S.pastD=null;S.vToday=null;YEST='2026-10-26';}}
+function newPF(){return {v:{},x:{comments:'',notes:'',site:S.x.site},made:TODAY};}
+function pfName(i){return S.pf.length>1?'Practice Form '+(i+1):'Practice Form';}
+function pfCount(p){return DKEYS.filter(function(k){return p.v&&p.v[k]!==''&&p.v[k]!=null;}).length;}
+function enterTest(){if(S.testM)return;if(!S.pf.length)S.pf.push(newPF());if(!S.pf[S.pi])S.pi=0;S.tv=S.pf[S.pi].v;S.tx=S.pf[S.pi].x;if(!S.pastD){S.vToday=S.v;S.colSave=S.col;}S.xToday=S.x;S.testM=true;S.v=S.tv;ensureKeys();S.x=S.tx;S.col=getCol('test');S.tmade=true;}
+function leaveTest(){if(S.testM){S.tv=S.v;S.tx=S.x;if(S.pf[S.pi]){S.pf[S.pi].v=S.tv;S.pf[S.pi].x=S.tx;}S.v=S.vToday;S.x=S.xToday;S.col=S.colSave;S.testM=false;S.vToday=null;S.xToday=null;S.colSave=null;}}
+function leavePast(){if(S.pastD){var hv=Object.assign({},S.v),any=DKEYS.some(function(k){return hv[k]!==''&&hv[k]!=null;});if(any)HIST[S.pastD]=hv;else delete HIST[S.pastD];S.v=S.vToday;S.col=S.colSave;S.pastD=null;S.vToday=null;YEST='2026-10-26';}}
 function openForm(iso,back){S.pendIso=iso!==TODAY?iso:null;go('today',back||'');}
 var DAYS=[['2026-10-19','Mon',19,'ok'],['2026-10-20','Tue',20,'miss'],['2026-10-21','Wed',21,'miss'],['2026-10-22','Thu',22,'miss'],['2026-10-23','Fri',23,'ok'],['2026-10-24','Sat',24,'ok'],['2026-10-25','Sun',25,'ok'],['2026-10-26','Mon',26,'ok'],['2026-10-27','Tue',27,'today'],['2026-10-28','Wed',28,'up'],['2026-10-29','Thu',29,'up'],['2026-10-30','Fri',30,'up']];
-var STL={ok:'Complete',miss:'Missing data',today:'In progress',up:'Upcoming'};
+var STL={ok:'Complete',miss:'Missing data',none:'No form yet',today:'In progress',up:'Upcoming'};
+function daysSaved(e){return Object.keys(HIST).filter(function(d){return d>=e.start&&d<=e.end&&dayFilled(d)>0;}).length;}
 var CK='<svg viewBox="0 0 24 24" width="14" height="14"><path d="M5 12.5l4.5 4.5L19 7.5" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"/></svg>';
 function mark(s){return s==='ok'?CK:s==='miss'?'!':s==='today'?'●':'';}
 function mdIso(iso){return mdShort(iso);}
 function delEvent(i){
   var wasAct=S.act===i;S.elects.splice(i,1);
+  if(!S.elects.length){S.act=0;return;}
   if(i<S.act)S.act--;
-  if(wasAct){S.act=Math.min(liveIdx(),S.elects.length-1);var n=S.elects[S.act];if(n.mach){S.names=n.mach.names;S.start=n.mach.start;if(n.mach.models)S.models=n.mach.models;}ensureKeys();syncAct();}
+  if(wasAct){S.act=Math.max(0,Math.min(liveIdx(),S.elects.length-1));var n=S.elects[S.act];if(n&&n.mach){S.names=n.mach.names;S.start=n.mach.start;if(n.mach.models)S.models=n.mach.models;}ensureKeys();syncAct();}
 }
 function switchE(i){
   var o=S.elects[S.act];o.mach={names:S.names,start:S.start,models:S.models};
@@ -1157,6 +1167,7 @@ function eStatus(e){return e.end<TODAY?'Closed':e.start>TODAY?'Upcoming':'In pro
 var MONF=['January','February','March','April','May','June','July','August','September','October','November','December'];
 var QUOTES=[['Government of the people, by the people, for the people.','Abraham Lincoln, 1863'],['A republic, if you can keep it.','Benjamin Franklin, 1787'],['We the People of the United States, in Order to form a more perfect Union\u2026','U.S. Constitution, Preamble'],['The right of citizens of the United States to vote shall not be denied or abridged \u2026 on account of race, color, or previous condition of servitude.','15th Amendment'],['The right of citizens of the United States to vote shall not be denied or abridged \u2026 on account of sex.','19th Amendment'],['The ballot is stronger than the bullet.','Abraham Lincoln, 1856'],['The United States shall guarantee to every State in this Union a Republican Form of Government.','Constitution, Article IV'],['Congress shall make no law \u2026 abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble.','1st Amendment'],['The right of citizens of the United States, who are eighteen years of age or older, to vote shall not be denied or abridged \u2026 on account of age.','26th Amendment'],['We hold these truths to be self-evident, that all men are created equal.','Declaration of Independence']];
 var MISSTXT={'2026-10-20':'Sealed – Never Opened, Opened – Not Used, Provisional and ePoll were left blank.','2026-10-21':'Machine 2 Protected Count, Provisional and ePoll were left blank.','2026-10-22':'Spoiled, Provisional and ePoll were left blank.'};
+function noneModal(iso){var d=new Date(iso+'T12:00:00'),nm=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][d.getDay()]+', '+MONF[d.getMonth()]+' '+d.getDate();return '<div class="sheet pop"><div class="popc" data-act="noop"><h3>Add a form for '+nm+'?</h3><p>No form was started for this day. Add a form to begin enter data from this day.</p><button class="pop-go" data-act="dayopen2" data-d="'+iso+'">Yes, add form</button><button class="pop-link" data-act="modalx">Cancel</button></div></div>';}
 function dayModal(iso){
   var d=new Date(iso+'T12:00:00'),nm=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'][d.getDay()]+', '+MONF[d.getMonth()]+' '+d.getDate();
   return '<div class="sheet pop"><div class="popc" data-act="noop"><button class="popx" data-act="modalx" aria-label="Close">✕</button><div class="pop-eye">Needs a look</div><h3>'+nm+'</h3><div class="pop-sub">'+dayFilled(iso)+' of 13 fields complete</div><p>This form is missing certain input fields from the day. This may impact cumulative calculations or lifetime values for certain data points. Please backfill the missing data as soon as possible.</p><p>Totals that depend on missing or incomplete data show * until they are filled in.</p><button class="pop-go" data-act="dayopen" data-d="'+iso+'">Edit Form</button></div></div>';
@@ -1175,7 +1186,7 @@ function calCells(e,act){act=act||'day';
 }
 function homeA(){
   var e=actE(),m1=new Date(e.start+'T12:00:00').getMonth(),m2=new Date(e.end+'T12:00:00').getMonth(),mt=m1===m2?MONF[m1]:MONF[m1]+' – '+MONF[m2];
-  return '<section class="hs"><h3>Your days</h3><div class="cal2"><div class="calmo">'+mt+'</div>'+calCells(e)+'</div><div class="legend2"><span><i class="lg2k">'+CK+'</i>Complete</span><span><i class="lg2 miss"></i>Needs a look</span><span><i class="lg2 today"></i>Today</span></div></section>';
+  return '<section class="hs"><h3>Your days</h3><div class="cal2"><div class="calmo">'+mt+'</div>'+calCells(e)+'</div><div class="legend2"><span><i class="lg2k">'+CK+'</i>Complete</span><span><i class="lg2 miss"></i>Needs a look</span><span><i class="lg2 none"></i>No data</span><span><i class="lg2 today"></i>Today</span><span><i class="lg2 up"></i>Upcoming</span></div></section>';
 }
 function homeHero(){
   var e=actE(),eye=S.fresh?'Your election event is ready':'Williamson County Elections';
@@ -1185,44 +1196,43 @@ function homeNow(){
   var e=actE(),inR=e.start<=TODAY&&TODAY<=e.end;
   if(inR)return '<section class="hs now"><div class="now-t"><span>Today</span><b>Tuesday, Oct 27</b><small>Form not started yet</small></div><button class="soft-go" data-act="opentoday" data-back="home">Open today’s form</button></section>';
   var up=e.start>TODAY;
-  return '<section class="hs now"><div class="now-t"><span>'+(up?'Next form':'Election ended')+'</span><b>'+mdShort(up?e.start:e.end)+', 2026</b><small>'+(up?'Your form will be ready on this day.':'Past days are still available to view.')+'</small></div></section>';
+  return '<section class="hs now"><div class="now-t"><span>'+(up?'Next form':'Election ended')+'</span><b>'+mdShort(up?e.start:e.end)+', 2026</b><small>'+(up?'Your form will be ready on this day.':'Past days are still available to view.')+'</small></div>'+(up?'':'<button class="soft-go" data-act="eopen" data-i="'+S.act+'">View Event Recap</button>')+'</section>';
 }
 function homeSetup(){
-  var e=actE();if(e.setup)return '';
+  var e=actE();if(e.setup||eStatus(e)==='Closed')return '';
   return '<section class="hs"><h3>Finish setting up</h3><div class="chk-list"><div class="ck-r done"><span class="ck-d">'+CK+'</span><span>Election details</span></div><button class="ck-r" data-go="election" data-from="home"><span class="ck-d"></span><span>Scanner machines and starting counts<small>Optional for now. Add them before your first form.</small></span><svg class="i" viewBox="0 0 24 24" style="width:18px;height:18px"><path d="M9 6l6 6-6 6"/></svg></button></div></section>';
 }
 function liveIdx(){
   for(var i=0;i<S.elects.length;i++)if(eStatus(S.elects[i])==='In progress')return i;
   var best=-1;S.elects.forEach(function(e,i){if(e.end>=TODAY&&(best<0||e.start<S.elects[best].start))best=i;});
-  return best<0?S.elects.length-1:best;
+  if(best>=0)return best;var lat=0;S.elects.forEach(function(e,i){if(e.end>S.elects[lat].end)lat=i;});return S.elects.length?lat:-1;
 }
 function electList(){
-  if(S.elects.length<2)return '';
-  var li=liveIdx(),CH='<svg class="i" viewBox="0 0 24 24" style="width:18px;height:18px"><path d="M9 6l6 6-6 6"/></svg>';
-  return '<section class="hs"><h3>Your election events</h3><div class="el-list">'+S.elects.map(function(e,i){
-    var st=eStatus(e),live=i===li&&st==='In progress';
-    return '<button class="el-r" data-act="eopen" data-i="'+i+'"><span><b>'+esc(e.type)+'</b><small>'+rangeTxt(e)+'</small></span>'+(live?'<em>In progress</em>':st!=='Closed'?'<em class="cs">Complete setup</em>':'<em class="cl">Closed</em>')+'</button>';
-  }).join('')+'</div></section>';
+  if(!S.elects.length)return '';
+  var li=liveIdx(),idx=S.elects.map(function(e,i){return i;});
+  var open=idx.filter(function(i){return eStatus(S.elects[i])!=='Closed';}).sort(function(a,b){var A=S.elects[a],B=S.elects[b],sa=eStatus(A)==='In progress'?0:1,sb=eStatus(B)==='In progress'?0:1;return sa-sb||(A.start<B.start?-1:A.start>B.start?1:0);});
+  var closed=idx.filter(function(i){return eStatus(S.elects[i])==='Closed';}).sort(function(a,b){var A=S.elects[a],B=S.elects[b];return A.end<B.end?1:A.end>B.end?-1:0;});
+  function rows(list){return '<div class="el-list">'+list.map(function(i){var e=S.elects[i],st=eStatus(e),live=i===li&&st==='In progress';
+    return '<button class="el-r" data-act="eopen" data-i="'+i+'"><span><b>'+esc(e.type)+'</b><small>'+rangeTxt(e)+'</small></span>'+(live?'<em>In progress</em>':st!=='Closed'?'<em class="cs">Complete setup</em>':'<em class="cl">Closed</em>')+'</button>';}).join('')+'</div>';}
+  return '<section class="hs"><h3>Your election events</h3>'+(open.length?rows(open):'')+(open.length&&closed.length?'<h3 class="el-gap">Closed events</h3>':'')+(closed.length?rows(closed):'')+'</section>';
 }
 function daysTo(iso){return Math.round((Date.parse(iso)-Date.parse(TODAY))/864e5);}
 function upcoming(){
   var i=(S.peek==null||!S.elects[S.peek])?S.elects.map(function(e,k){return eStatus(e)==='Upcoming'?k:-1;}).filter(function(k){return k>=0;})[0]:S.peek;
-  if(i==null)i=S.elects.length-1;S.peek=i;var e=S.elects[i],n=daysTo(e.start),li=liveIdx(),lv=S.elects[li];
+  if(i==null)i=S.elects.length-1;S.peek=i;var e=S.elects[i],n=daysTo(e.start),li=liveIdx(),lv=S.elects[li],cl=eStatus(e)==='Closed',nd=cl?daysSaved(e):0;
   var CH='<svg class="i" viewBox="0 0 24 24" style="width:18px;height:18px"><path d="M9 6l6 6-6 6"/></svg>';
-  var hero='<div class="fixbar flow"><button class="hbtn" data-go="home" aria-label="Back to Home">'+ic('back')+'</button><button class="hbtn" data-go="appset" data-from="home" aria-label="App settings">'+ic('gear')+'</button></div><div class="hero sm" style="'+phBg('linear-gradient(180deg,rgba(14,38,78,.55) 0%,rgba(14,38,78,.72) 60%,rgba(14,38,78,.9) 100%)')+';padding-bottom:0px;padding-top:2px"><div class="hero-tx"><div class="wz-eye" style="margin-bottom:8px">Upcoming</div><h1>'+esc(e.type)+'</h1><p>'+rangeTxt(e)+', 2026 · Site '+esc(e.site)+'</p></div></div>';
+  var hero='<div class="fixbar flow"><button class="hbtn" data-go="home" aria-label="Back to Home">'+ic('back')+'</button><button class="hbtn" data-go="appset" data-from="home" aria-label="App settings">'+ic('gear')+'</button></div><div class="hero sm" style="'+phBg('linear-gradient(180deg,rgba(14,38,78,.55) 0%,rgba(14,38,78,.72) 60%,rgba(14,38,78,.9) 100%)')+';padding-bottom:0px;padding-top:2px"><div class="hero-tx"><div class="wz-eye" style="margin-bottom:8px">'+(cl?'Closed':'Upcoming')+'</div><h1>'+esc(e.type)+'</h1><p>'+rangeTxt(e)+', 2026 · Site '+esc(e.site)+'</p></div></div>';
   var X=S.upx,CHD='<svg class="i chv" viewBox="0 0 24 24" style="width:18px;height:18px"><path d="M9 6l6 6-6 6"/></svg>';
   function row(st,done,title,sub){return '<div class="ck-r'+(done?' done':'')+'"><button class="ck-h" data-act="upwz" data-s="'+st+'"><span class="ck-d">'+(done?CK:'')+'</span><span>'+title+'<small>'+sub+'</small></span>'+CHD+'</button></div>';}
   var rows=row(0,true,'Election Details','Type, site and dates')+
    row(3,X.mDone,'Scanner Machines',X.mDone?X.machines+' machine'+(X.machines===1?'':'s'):'Choose how many and the model of each')+
    row(4,X.cDone,'Day 1 Start Counts',X.cDone?'Added':'Add them when you can read them off the machines');
-  var nF=ensureTestCount();
-  var prac='<h3 class="upc-h">Practice Form</h3><p class="upc-p">Get used to the daily form before election day. A practice form is separate from the real one. Nothing you enter counts toward the election.</p>'+(S.tmade?'<button class="upc-test" data-go="test"><span><b>Test Form</b><small>'+nF+' of 13 entered · Practice only</small></span>'+CHD+'</button>':'<button class="upc-go" data-act="mktest">Create Practice Form</button>');
+  var prac='<h3 class="upc-h">Practice Form</h3><p class="upc-p">Get used to the daily form before election day. A practice form is separate from the real one. Nothing you enter counts toward the election.</p>'+S.pf.map(function(p,k){return '<button class="upc-test" data-act="ptopen" data-i="'+k+'"><span><b>'+esc(pfName(k))+'</b><small>'+pfCount(p)+' of 13 entered · Practice only</small></span>'+CHD+'</button>';}).join('')+'<button class="upc-go" data-act="mktest">'+(S.pf.length?'Create Another Practice Form':'Create Practice Form')+'</button>';
   return hero+'<div class="upc">'+
-   '<div class="upc-now"><span>'+(n>0?'Opens in '+n+' day'+(n===1?'':'s'):'Overlaps your current event')+'</span><b>'+mdShort(e.start)+', 2026</b><small>Your daily form is ready on this day.</small></div>'+
-   '<h3 class="upc-h">Setup Checklist</h3><div class="tl">'+rows+'</div>'+
-   '<h3 class="upc-h">What opens on '+mdShort(e.start)+'</h3><p class="upc-p">The daily form, reports and spreadsheet. Nothing is counted before then.</p>'+
-   prac+
-   '<div class="upc-foot"><button class="upc-go" data-act="upsetup">Open Election Settings</button><button class="upc-link" data-go="home">Back to Home</button></div>'+(S.elects.length>1?'<div class="upc-del"><button data-act="updel" aria-label="Delete this election event">'+TR_ICON+'</button></div>':'')+'</div>';
+   (cl?'<div class="upc-now"><span>Closed</span><b>Ended '+mdShort(e.end)+', 2026</b><small>'+(nd?nd+' day'+(nd===1?'':'s')+' saved on this phone.':'No days were saved on this phone.')+'</small></div>':'<div class="upc-now"><span>'+(n>0?'Opens in '+n+' day'+(n===1?'':'s'):'Overlaps your current event')+'</span><b>'+mdShort(e.start)+', 2026</b><small>Your daily form is ready on this day.</small></div>')+
+   (cl?'<h3 class="upc-h">Event Details</h3><dl class="upc-dl"><div><dt>Type</dt><dd>'+esc(e.type)+'</dd></div><div><dt>Site</dt><dd>'+esc(e.site)+'</dd></div><div><dt>Dates</dt><dd>'+rangeTxt(e)+', 2026</dd></div><div><dt>Scanner machines</dt><dd>'+(e.setup?X.machines:'Not added')+'</dd></div><div><dt>Days saved</dt><dd>'+nd+'</dd></div></dl>':'<h3 class="upc-h">Setup Checklist</h3><div class="tl">'+rows+'</div>')+
+   (cl?'<h3 class="upc-h">Saved Days</h3><p class="upc-p">'+(nd?'Review the daily forms, reports and spreadsheet for this event, or download them.':'Nothing was entered for this event. Open Past Days to add a form for any of its days.')+'</p>'+(nd?'':''):'<h3 class="upc-h">What opens on '+mdShort(e.start)+'</h3><p class="upc-p">The daily form, reports and spreadsheet. Nothing is counted before then.</p>'+prac)+
+   '<div class="upc-foot">'+(cl?'<div class="upc-lk">'+'<button data-act="upview">View Past Days</button>'+(nd?'<button data-act="updl">Download Reports</button>':'')+'<button data-act="upsetup">View Election Settings</button></div>':'<button class="upc-go" data-act="upsetup">Open Election Settings</button><button class="upc-link" data-go="home">Back to Home</button>')+'</div>'+((S.elects.length>1||cl)?'<div class="upc-del"><button data-act="updel" aria-label="Delete this election event">'+TR_ICON+'</button></div>':'')+'</div>';
 }
 function ensureTestCount(){var v=S.testM?S.v:S.tv,ks=['recvL','recvS','sealL','sealS','openL','openS','m0pub','m0prot','m1pub','m1prot','prov','spoil','epoll'];return ks.filter(function(k){return v&&v[k]!==''&&v[k]!=null;}).length;}
 var NOTES_IN='<p class="td-n">You can toggle between the demo modes as much as you like. Each time you do, any edits you made will be reset.</p><p class="td-d"><b>Disclaimer:</b> This version of the app is for demo purposes and should not be used for election purposes without express consent.</p>';
@@ -1235,10 +1245,12 @@ function testModal(){var conf=S.tdConfirm||null,sel=S.testPicked||null,an=S.dshA
    +'<div class="td-ok">'+(sel?'Tap again to confirm selection':'&nbsp;')+'</div>'
    +'<p class="dsh-n">You can toggle between the demo modes as much as you like. Each time you do, any edits you made will be reset.</p><p class="dsh-d"><b>Disclaimer:</b> This version of the app is for demo purposes and should not be used for election purposes without express consent.</p></div></div>';}
 function homeEmpty(){
-  return '<div class="hm-wrap"><div class="hero" style="padding-bottom:0"><div class="hero-top"><img src="'+PH.wwhite+'" alt="Williamson County, Texas"><button class="hbtn" data-go="appset" data-from="home" aria-label="App settings">'+ic('gear')+'</button></div><div class="hero-tx"><div class="wz-eye" style="margin-bottom:8px">Williamson County Elections</div><h1>Welcome</h1><p>No election events yet</p></div></div><div class="hsheet" id="hsheet" style="top:auto"><div class="hbody" id="hbody"><section class="hs now"><div class="now-t"><span>Get started</span><b>Add your first election event</b><small>Set up your site, dates and scanner machines.</small></div><button class="soft-go" data-go="wizard">Add election event</button></section>'+homeFoot().replace('<button class="hlink2" data-go="wizard">+ Add election event</button>','')+'</div></div></div>';
+  return '<div class="hm-wrap"><div class="hero" style="padding-bottom:0"><div class="hero-top"><img src="'+PH.wwhite+'" alt="Williamson County, Texas"><button class="hbtn" data-go="appset" data-from="home" aria-label="App settings">'+ic('gear')+'</button></div><div class="hero-tx"><div class="wz-eye" style="margin-bottom:8px">Williamson County Elections</div><h1>Welcome</h1><p>No election events yet</p></div></div><div class="hquote"><p>“'+homeQuote()[0]+'”</p><small>'+homeQuote()[1]+'</small></div><div class="hsheet'+(S.hcol?' shut':'')+'" id="hsheet"><div class="hgrab" id="hgrab" role="button" tabindex="0" aria-label="Collapse or expand" aria-expanded="'+!S.hcol+'"><i></i></div><div class="hbody" id="hbody"><section class="hs now"><div class="now-t"><span>Get started</span><b>Add your first election event</b><small>Set up your site, dates, and logistics.</small></div><button class="soft-go" data-go="wizard">Add election event</button></section><section class="hs"><h3>Your election events</h3><p class="el-none">No election events yet.</p></section>'+homeFoot().replace('<button class="hlink2" data-go="wizard">+ Add election event</button>','')+'</div></div></div>';
 }
 function emptyScreen(){var ti={today:'Today',days:'Past Days',election:'Election Settings',upcoming:'Upcoming'}[S.screen]||'';
   return '<div class="fixbar dltop"><span class="dlsp"></span><h1>'+ti+'</h1><button class="hbtn" data-go="appset" data-from="home" aria-label="App settings">'+ic('gear')+'</button></div><div class="dlx"><div class="dlcard"><div class="dlitem"><div class="dlhead"><b>No election event yet</b></div><div class="dld">Add an election event to use this page.</div><button class="dlb" data-go="wizard">Add election event</button></div></div></div>';}
+function isNoOpen(){return S.elects.length&&S.screen==='today'&&!S.pastD&&!S.testM&&!S.elects.some(function(e){return eStatus(e)==='In progress';});}
+function noOpenScreen(){var n=S.pf.length;return '<div class="fixbar dltop"><span class="dlsp"></span><h1>Today</h1><button class="hbtn" data-go="appset" data-from="home" aria-label="App settings">'+ic('gear')+'</button></div><div class="dlx"><div class="dlcard"><div class="dlitem"><div class="dlhead"><b>No election is open today</b></div><div class="dld">If you want to use a practice form, you can '+(n?'open one below or create another':'create one below')+'. Nothing you enter on it counts toward an election.</div>'+S.pf.map(function(p,k){return '<button class="dlb" data-act="ptopen" data-i="'+k+'">Open '+esc(pfName(k))+'</button>';}).join('')+'<button class="dlb" data-act="mktest">'+(n?'Create Another Practice Form':'Create Practice Form')+'</button></div></div></div>';}
 function homeFoot(){
   return '<div class="hfoot"><button class="hlink2" data-go="wizard">+ Add election event</button><button class="hlink" data-act="testdata">Demo Mode</button></div>';
 }
@@ -1322,12 +1334,15 @@ var PDV={'2026-10-26':['+7,362','+7,362','0'],'2026-10-25':['+4,908','+4,908','0
 var WDN=['Sunday','Monday','Tuesday','Wednesday','Thursday','Friday','Saturday'];
 function pdIc(p){return '<svg viewBox="0 0 24 24" aria-hidden="true" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">'+p+'</svg>';}
 function pdStat(e){return dayStatusMap(e);}
+function pfCardHTML(e){if(!S.pf.length||S.act!==liveIdx()||S.viewClosed!=null)return '';var TRS='<svg viewBox="0 0 24 24" aria-hidden="true" style="width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round"><path d="M4 7h16M10 11v6M14 11v6M6 7l1 12h10l1-12M9 7V4h6v3"/></svg>';return '<div class="pd-card pf-card">'+S.pf.map(function(p,k){return '<div class="pdr pf"><div class="pdh" data-act="ptopen" data-i="'+k+'" tabindex="0" role="button"><span class="pds pfs" aria-hidden="true">P</span><div class="pdx"><b>'+esc(pfName(k))+'</b><div class="pdl"><small>'+pfCount(p)+' of 13 entered</small></div></div><em class="pftag">Practice</em><button class="pdbtn pfdel" data-act="ptdel" data-i="'+k+'" aria-label="Delete '+esc(pfName(k))+'">'+TRS+'</button></div></div>';}).join('')+'</div>';}
 function pdRows(e){
-  var map=pdStat(e),out='',d=new Date((e.end<TODAY?e.end:prevISO(TODAY))+'T12:00:00'),st=new Date(e.start+'T12:00:00');
+  var map=pdStat(e),anyDay=daysSaved(e)>0,out='',d=new Date((e.end<TODAY?e.end:prevISO(TODAY))+'T12:00:00'),st=new Date(e.start+'T12:00:00');
   var DOTS='<svg viewBox="0 0 24 24" aria-hidden="true"><circle cx="5" cy="12" r="2" fill="currentColor"/><circle cx="12" cy="12" r="2" fill="currentColor"/><circle cx="19" cy="12" r="2" fill="currentColor"/></svg>';
   var MI=[['pdedit',pdIc('<path d="M4 20h4L19 9l-4-4L4 16v4z"/><path d="M13.5 6.5l4 4"/>'),'Edit form'],['pdsheet',pdIc('<rect x="4" y="5" width="16" height="14" rx="2"/><path d="M4 10h16M4 14.5h16M10 5v14"/>'),'View spreadsheet'],['pdpng',pdIc('<path d="M12 4v11M7.5 10.5L12 15l4.5-4.5M5 19h14"/>'),'Download spreadsheet (.png)'],['pdtext',pdIc('<path d="M7 3h7l4 4v14H7z"/><path d="M14 3v4h4M10 12h5M10 16h5"/>'),'View text report']];
   while(d>=st){
-    var iso=d.toISOString().slice(0,10),ok=(map[iso]||'ok')==='ok',v=pdVals(iso),nm=WDN[d.getDay()],op=S.pdOpen===iso,mn=S.pdMenu===iso;
+    var iso=d.toISOString().slice(0,10);
+    if(map[iso]==='none'){d.setDate(d.getDate()-1);continue;}
+    var ok=(map[iso]||'ok')==='ok',v=pdVals(iso),nm=WDN[d.getDay()],op=S.pdOpen===iso,mn=S.pdMenu===iso;
     var L=['Public Count Change (Today)','ePoll Change (Today)','Reconciliation (Today)'];
     out+='<div class="pdr'+(op?' open':'')+'" data-d="'+iso+'"><div class="pdh" data-act="pdrow" data-d="'+iso+'" tabindex="0" role="button" aria-expanded="'+op+'"><span class="pds" role="img" aria-label="'+(ok?'Complete':'Needs a look')+'">'+(ok?CK:'<i class="pdot"></i>')+'</span><div class="pdx"><b>'+nm+'</b><div class="pdl"><small>'+mdShort(iso)+'</small></div></div><button class="pdbtn" data-act="pdmenu" data-d="'+iso+'" aria-label="Options for '+mdShort(iso)+'" aria-haspopup="true">'+DOTS+'</button></div>'+
       '<div class="pdd">'+(ok?'':'<p class="pdn top">Only '+dayFilled(iso)+'/13 fields completed. Please choose \u201cedit form\u201d from the menu to update.</p>')+'<div class="pdt">'+L.map(function(l,i){return '<div class="pdtr"><span>'+l+'</span><b'+(v[i]==='*'?' class="na"':(i===2&&v[i]!=='0'&&v[i]!==''?' class="red"':''))+'>'+v[i]+'</b></div>';}).join('')+'</div>'+'<div class="pdq"><button data-act="pdedit" data-d="'+iso+'">'+MI[0][1]+'Edit form</button><button data-act="pdsheet" data-d="'+iso+'">'+pdIc('<circle cx="10.5" cy="10.5" r="6"/><path d="M15 15l5 5"/>')+'View table</button></div></div>'+
@@ -1341,8 +1356,8 @@ function abbrM(s){return String(s).replace(/\b(January|February|March|April|Augu
 function days(){
   var e=actE(),inR=e.start<=TODAY&&TODAY<=e.end,m1=new Date(e.start+'T12:00:00').getMonth(),m2=new Date(e.end+'T12:00:00').getMonth(),mt=m1===m2?MONF[m1]:MONF[m1]+' – '+MONF[m2];
   var today=inR?'<div class="pdtoday"><div class="pdtd"><small>Tue</small><b>27</b></div><div class="pdtt"><b>Today</b><span><i class="pdtsq"></i>In progress</span></div><button class="soft-go pdgo" data-act="opentoday" data-back="days">Open form</button></div>':'';
-  var cal='<div class="pdcw'+(S.pdCal?' shut':'')+'" id="pdcw"><div class="cal2"><button class="calmo pdmo" data-act="pdcalt" aria-label="Show or hide the calendar">'+mt+'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>'+calCells(e,'pdcal')+'</div><div class="legend2"><span><i class="lg2k">'+CK+'</i>Complete</span><span><i class="lg2 miss"></i>Needs a look</span><span><i class="lg2 today"></i>Today</span></div></div>';
-  return '<div class="pd-wrap"><div class="hero pdhero" style="padding-bottom:22px"><div class="hero-top"><span style="height:34px"></span><button class="hbtn" data-go="appset" data-from="days" aria-label="App settings">'+ic('gear')+'</button></div><div class="hero-tx"><div class="wz-eye" style="margin-bottom:8px">Williamson County Elections</div><h1>'+esc(abbrM(e.title))+'</h1><p>'+esc(e.type)+' \u00b7 '+rangeTxt(e)+' \u00b7 Site '+esc(e.site)+'</p></div></div><div class="pd-sheet"><div class="pd-fixed">'+today+cal+'</div><div class="pd-list" id="pdlist"><h3>Previous days</h3><div class="pd-card">'+pdRows(e)+'</div><div class="hfoot"><button class="hlink2" data-act="pdadd">+ Add a prior day</button><button class="hlink" data-act="toast" data-m="Nothing deleted yet (mockup)">Recently deleted (0)</button></div></div></div></div>';
+  var cal='<div class="pdcw'+(S.pdCal?' shut':'')+'" id="pdcw"><div class="cal2"><button class="calmo pdmo" data-act="pdcalt" aria-label="Show or hide the calendar">'+mt+'<svg viewBox="0 0 24 24" aria-hidden="true"><path d="M6 9l6 6 6-6" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"/></svg></button>'+calCells(e,'pdcal')+'</div><div class="legend2"><span><i class="lg2k">'+CK+'</i>Complete</span><span><i class="lg2 miss"></i>Needs a look</span><span><i class="lg2 none"></i>No data</span><span><i class="lg2 today"></i>Today</span><span><i class="lg2 up"></i>Upcoming</span></div></div>';
+  return '<div class="pd-wrap"><div class="hero pdhero" style="padding-bottom:22px"><div class="hero-top"><span style="height:34px"></span><button class="hbtn" data-go="appset" data-from="days" aria-label="App settings">'+ic('gear')+'</button></div><div class="hero-tx"><div class="wz-eye" style="margin-bottom:8px">Williamson County Elections</div><h1>'+esc(abbrM(e.title))+'</h1><p>'+esc(e.type)+' \u00b7 '+rangeTxt(e)+' \u00b7 Site '+esc(e.site)+'</p></div></div><div class="pd-sheet" id="pdlist"><div class="pd-fixed">'+today+cal+'</div><div class="pd-list"><h3>Previous days</h3>'+pfCardHTML(e)+(function(r){return r?'<div class="pd-card">'+r+'</div>':'<p class="pd-note">No forms have been created or accessed during this event window. You can still create and backfill a form using the button below.</p>';})(pdRows(e))+'<div class="hfoot"><button class="hlink2" data-act="pdadd">+ Add a prior day</button></div><div class="pd-del"><button class="hlink" data-act="toast" data-m="Nothing deleted yet (mockup)">Recently deleted (0)</button></div></div></div></div>';
 }
 function dlitem(title,desc,ft,label,msg,extra,ft2){
   if(!label)return '<div class="dlitem"><div class="dlhead"><b>'+title+'</b>'+(extra||'')+'</div><div class="dld">'+desc+'</div></div>';
@@ -1358,12 +1373,12 @@ function saveTip(){return devType()==='android'
  ?'To save an image: when the share menu appears, choose \u201cPhotos\u201d (gallery), \u201cDrive\u201d (Google Drive), or choose to send it in a message via Gmail or Messages.'
  :'To save an image: when the save menu appears, choose \u201cSave Image\u201d (photos), \u201cSave to Files\u201d (iCloud), or choose to send in a message via Mail or Messages.';}
 function expOpts(k){
-  var X=S.exp[k],rows=S.elects.map(function(e,i){var has=eStatus(e)!=='Upcoming',on=has&&X.ev[i];return '<button class="expr'+(on?' on':'')+(has?'':' off')+'" data-act="expev" data-k="'+k+'" data-i="'+i+'"'+(has?'':' disabled')+' role="checkbox" aria-checked="'+on+'"><span class="expk">'+(on?CK:'')+'</span><span><b>'+esc(e.type)+'</b><small>'+rangeTxt(e)+(has?'':' \u00b7 No days yet')+'</small></span></button>';}).join('');
+  var X=S.exp[k],rows=S.elects.map(function(e,i){var has=eStatus(e)!=='Upcoming'&&daysSaved(e)>0,on=has&&X.ev[i];return '<button class="expr'+(on?' on':'')+(has?'':' off')+'" data-act="expev" data-k="'+k+'" data-i="'+i+'"'+(has?'':' disabled')+' role="checkbox" aria-checked="'+on+'"><span class="expk">'+(on?CK:'')+'</span><span><b>'+esc(e.type)+'</b><small>'+rangeTxt(e)+(has?'':' \u00b7 No days yet')+'</small></span></button>';}).join('');
   var rng=X.days==='range'?'<div class="exp2"><div><div class="wz-cl">From</div><input class="expd" type="date" data-expd="from" data-k="'+k+'" value="'+X.from+'"></div><div><div class="wz-cl">To</div><input class="expd" type="date" data-expd="to" data-k="'+k+'" value="'+X.to+'"></div></div>':'';
   return '<div class="expl">Election events</div><div class="expg">'+rows+'</div>'+
   '<div class="expl">Days</div><div class="expseg"><button class="'+(X.days==='all'?'on':'')+'" data-act="expdays" data-k="'+k+'" data-v="all">All days</button><button class="'+(X.days==='range'?'on':'')+'" data-act="expdays" data-k="'+k+'" data-v="range">Date range</button></div>'+rng;
 }
-function expN(k){return S.elects.filter(function(e,i){return eStatus(e)!=='Upcoming'&&S.exp[k].ev[i];}).length;}
+function expN(k){return S.elects.filter(function(e,i){return eStatus(e)!=='Upcoming'&&daysSaved(e)>0&&S.exp[k].ev[i];}).length;}
 function devType(){return S.dev||(/Android/i.test(navigator.userAgent||'')?'android':'iphone');}
 function saveTip(){return devType()==='android'
  ?'To save an image: when the share menu appears, choose \u201cPhotos\u201d (gallery), \u201cDrive\u201d (Google Drive), or choose to send it in a message via Gmail or Messages.'
@@ -1409,7 +1424,7 @@ function election(){
   '<div class="hs"><h3 class="upc-h">Start next day at</h3><p class="s2h">Anything entered before this time still counts toward the previous day, so a late night does not split in two. Default is 4:00 AM.</p><select class="sel" id="roll" aria-label="Start next day at">'+[[0,'12:00 AM (midnight)'],[1,'1:00 AM'],[2,'2:00 AM'],[3,'3:00 AM'],[4,'4:00 AM (recommended)'],[5,'5:00 AM'],[6,'6:00 AM']].map(function(o){return '<option value="'+o[0]+'"'+(o[0]===S.rollHr?' selected':'')+'>'+o[1]+'</option>';}).join('')+'</select><p class="s2h" style="margin:8px 2px 0">Uses the time on this phone.</p></div>'+
   '<div class="hs"><h3 class="upc-h">Scanner machines</h3><p class="s2h">The number on each machine before the first ballot was cast on Day 1 of the election cycle. Public count normally starts at 0.</p>'+mach+'<button class="s2add" data-act="minc">+ Add a machine</button></div>'+
   '<div class="hs"><h3 class="upc-h">ePoll</h3><div class="s2c"><div class="s2g">'+sfld2('ep','Day 1 starting count')+'<div></div></div></div></div>'+
-  '<button class="s2del" data-act="toast" data-m="Not in the mockup">Delete this election</button></div>';
+  '<div class="upc-del"><button data-act="eldel" aria-label="Delete this election event">'+TR_ICON+'</button></div></div>';
 }
 function appset(){
   return '<div class="fixbar dltop"><button class="hbtn" data-go="'+(S.from||'home')+'" aria-label="Back">'+ic('back')+'</button><h1>App Settings</h1><span class="dlsp"></span></div><div class="dlx aps"><div class="mvp"><section id="s-settings">'+
@@ -1421,7 +1436,7 @@ function appset(){
   '<div class="card about"><span class="lbl">A calculator, nothing more</span><ul><li>It does not connect to voting machines, poll books, touchpads or any election system.</li><li>It does not count or store ballots or voter information. It only does arithmetic on the numbers you type in.</li><li>It is not an official election tool and is not connected to any election office. Always follow your official procedures and forms.</li></ul></div>'+
   '<h2 class="plain">Definitions</h2><div class="card about boxed"><div class="formula"><b>ePoll</b><br>Number read from the touchpad check-in machine. Represents number of voter check-ins.</div><div class="formula"><b>Public Count</b><br>Number read from public count on machine.</div><div class="formula"><b>Protected Count</b><br>Number read from protected count on machine.</div><div class="formula"><b>Ballots Received</b><br>Total number of ballots received at the polling location that day. Includes both Large Ballots and Small Cards.</div><div class="formula"><b>Sealed Ballots</b><br>Ballots that remained in original packaging. Never opened.</div><div class="formula"><b>Unsealed Ballots</b><br>Ballots that were removed from their packaging but never used.</div></div>'+
   '<div class="card about boxed"><span class="lbl">Calculation Definitions</span><div class="formula"><b>Lifetime</b><br>Cumulative total from Day 1 of Election Cycle</div><div class="formula"><b>Lifetime Change</b><br>Total change since Day 1 of Election Cycle</div><div class="formula"><b>Change from Yesterday</b><br>Difference in value from yesterday to today. A way to look at daily changes in a running total throughout Election Cycle.</div></div>'+
-  dlDanger()+'<p class="aps-about">Created by <a href="https://www.backstagestrategy.com" target="_blank" rel="noopener">Backstage Strategy</a><br>\u00a9 2025 Backstage Strategy. All rights reserved.<br>Demo build v78</p>'+'</section></div></div>';
+  dlDanger()+'<p class="aps-about">Created by <a href="https://www.backstagestrategy.com" target="_blank" rel="noopener">Backstage Strategy</a><br>\u00a9 2025 Backstage Strategy. All rights reserved.<br>Demo build v84</p>'+'</section></div></div>';
 }
 var SCREENS={test:today,upcoming:upcoming,splash:splash,login:login,home:home,wizard:wizard,today:today,days:days,download:download,election:election,appset:appset};
 var BAR=['home','days','today','download','election'],BARL={home:'Home',today:'Today',days:'Past Days',download:'Download',election:'Election'};
@@ -1446,18 +1461,19 @@ function depthOf(s){if(s==='today')return S.testM?3:S.fmBack?2:1;if(s==='test')r
 var BGS=['download','test','splash','login','home','wizard','election','upcoming','days','appset'];
 function render(){
   var ap=$('#app'),same=S.prevScreen===S.screen,st=ap.scrollTop,hb0=$('#hbody'),hst=hb0?hb0.scrollTop:0,pl0=$('#pdlist'),pst=pl0?pl0.scrollTop:0;var dp=depthOf(S.screen),pd=S.prevDepth==null?dp:S.prevDepth,nav=(!same&&(dp>=2||pd>=2)&&dp!==pd)?(dp>pd?'navf':'navb'):'';S.prevDepth=dp;ap.classList.remove('navf','navb');if(nav&&S.screen!=='appset'){ap.classList.add(nav);}S.prevScreen=S.screen;
-  var st2=same||(S.screen==='home'&&S.homeSeen)||S.screen==='days';ap.classList.toggle('still',st2);if(S.screen==='home')S.homeSeen=true;ap.classList.toggle('spmodal',S.screen==='splash'&&!!S.modal);ap.classList.toggle('bgon',BGS.indexOf(S.screen)>-1||(!S.elects.length&&S.screen==='today'));
-  $('#bgph').classList.toggle('dim',(!S.elects.length&&['today','days','election','upcoming'].indexOf(S.screen)>-1)||S.screen==='download'||S.screen==='election'||S.screen==='upcoming'||S.screen==='test'||S.screen==='appset');
+  var st2=same||(S.screen==='home'&&S.homeSeen)||S.screen==='days';ap.classList.toggle('still',st2);if(S.screen==='home')S.homeSeen=true;ap.classList.toggle('spmodal',S.screen==='splash'&&!!S.modal);ap.classList.toggle('bgon',BGS.indexOf(S.screen)>-1||(!S.elects.length&&S.screen==='today')||!!isNoOpen());
+  $('#bgph').classList.toggle('dim',!!isNoOpen()||(!S.elects.length&&['today','days','election','upcoming'].indexOf(S.screen)>-1)||S.screen==='download'||S.screen==='election'||S.screen==='upcoming'||S.screen==='test'||S.screen==='appset');
   var key=S.photo||'courthouse';if(S.bgKey!==key){S.bgKey=key;$('#bgph').setAttribute('style',phStyle('linear-gradient(180deg,rgba(14,38,78,.58) 0%,rgba(14,38,78,.76) 50%,rgba(10,28,60,.93) 100%)'));}
   var emp=!S.elects.length&&['today','days','election','upcoming'].indexOf(S.screen)>-1;
-  ap.innerHTML=emp?emptyScreen():SCREENS[S.screen]();
+  var noOpen=!emp&&!!isNoOpen();S.noOpen=noOpen;
+  ap.innerHTML=emp?emptyScreen():noOpen?noOpenScreen():SCREENS[S.screen]();
   if(same){ap.scrollTop=st;var hb1=$('#hbody');if(hb1)hb1.scrollTop=hst;var pl1=$('#pdlist');if(pl1)pl1.scrollTop=pst;}
   var bar=$('#bar');bar.hidden=!(BAR.indexOf(S.screen)>-1||S.screen==='appset'||S.screen==='upcoming'||S.screen==='test');
   bar.innerHTML=BAR.map(function(k){return '<button class="tab'+(S.screen===k||(S.screen==='test'&&k==='today')?' on':'')+'" data-go="'+k+'" aria-label="'+BARL[k]+'">'+ic(k)+'<span>'+BARL[k]+'</span></button>';}).join('');
   $('#overlay').innerHTML=S.sheet?sheetHTML():(S.modal||'');
   $('#note').textContent=NOTES[S.screen];
   $$('#jumps .ropt').forEach(function(b){b.classList.toggle('on',b.dataset.go===S.screen);});
-  if(S.screen==='today'||S.screen==='test'){renderBoxes();chipSpy();}
+  if((S.screen==='today'&&!S.noOpen)||S.screen==='test'){renderBoxes();chipSpy();}
   $('#phbox').hidden=!(S.screen==='home'||S.screen==='splash'||S.screen==='wizard');$('#app').classList.toggle('nopad',emp||S.screen==='wizard'||S.screen==='home'||S.screen==='election'||S.screen==='upcoming'||S.screen==='days'||S.screen==='download'||S.screen==='appset');$('#app').classList.toggle('hm',!emp&&(S.screen==='home'||S.screen==='election'||S.screen==='upcoming'||S.screen==='days'));
   $('#devbox').hidden=S.screen!=='download';$$('#devbox .ropt').forEach(function(b){b.classList.toggle('on',b.dataset.dev===devType());});
   $$('#phopts .ropt').forEach(function(b){b.classList.toggle('on',b.dataset.ph===(S.photo||'courthouse'));});
@@ -1474,10 +1490,11 @@ function go(s,fm){
   var cur=S.screen,od=depthOf(cur),ap=$('#app');
   if(ap)S.scr[cur]=[ap.scrollTop,($('#hbody')||{}).scrollTop||0,($('#pdlist')||{}).scrollTop||0];
   leavePast();leaveTest();S.day='';S.fmBack=fm||'';S.pdMenu=null;if(s==='days'&&S.screen!=='today')S.pdOpen=null;
-  var sw=null;if(S.elects.length&&['home','today','days','download'].indexOf(s)>-1&&S.act!==liveIdx()){switchE(liveIdx());sw=S.elects[S.act].type;}
+  var vc=S.viewClosed!=null&&S.viewClosed===S.act&&(s==='days'||s==='download'||(s==='today'&&S.pendIso));if(!vc)S.viewClosed=null;
+  var sw=null;if(!vc&&S.elects.length&&['home','today','days','download'].indexOf(s)>-1&&S.act!==liveIdx()){switchE(liveIdx());sw=S.elects[S.act].type;}
   if(s!=='home')S.fresh=false;
   if(s==='today'&&S.pendIso)enterPast(S.pendIso);S.pendIso=null;
-  S.screen=s;S.sheet=false;S.modal='';if(s==='login')S.pin='';
+  S.screen=s;S.sheet=false;S.sheetDay=null;S.modal='';if(s==='login')S.pin='';
   if(s==='wizard'){if(S.wzKeep)S.wzKeep=false;else S.wz=newWz();}
   if(s==='test'){enterTest();S.screen='test';}
   var back=depthOf(S.screen)<od,m=back&&S.scr[S.screen];
@@ -1508,17 +1525,17 @@ document.addEventListener('click',function(e){
   var a=e.target.closest('[data-act]');if(!a)return;
   var act=a.dataset.act;
   if(act==='key'){if(S.pin.length<4){S.pin+=a.dataset.k;render();if(S.pin.length===4)setTimeout(function(){if(S.screen==='login')go('home');},250);}}
-  else if(act==='updel'){var ue=S.elects[S.peek];S.modal=confirmHTML('Delete this election event?','<b>'+esc(ue.type)+'</b> ('+rangeTxt(ue)+') and its setup will be removed from this phone. This cannot be undone.','Delete election event').replace('data-act="cfok"','data-act="updelok"').replace('class="pop-go"','class="pop-go dng"');render();}
+  else if(act==='updel'||act==='eldel'){if(act==='eldel')S.peek=S.act;var ue=S.elects[S.peek];S.modal=confirmHTML('Delete this election event?','<b>'+esc(ue.type)+'</b> ('+rangeTxt(ue)+') and its setup'+(eStatus(ue)!=='Upcoming'&&daysSaved(ue)>0?', including its saved days,':'')+' will be removed from this phone. This cannot be undone.','Delete election event').replace('data-act="cfok"','data-act="updelok"').replace('class="pop-go"','class="pop-go dng"');render();}
   else if(act==='updelok'){S.modal='';delEvent(S.peek);S.peek=null;go('home');toast('Election event deleted');}
   else if(act==='testdata'){S.tdConfirm=null;S.modalAt=Date.now();S.dshAnim=true;S.modal=testModal();render();}
   else if(act==='testdone'){S.tdConfirm=null;S.modal='';if(S.screen!=='splash')go('home');else render();}
-  else if(act==='testfresh'){if(Date.now()-(S.modalAt||0)<500)return;if(S.testPicked==='fresh'){S.tdConfirm=null;S.modal='';render();return;}resetData('fresh');}
-  else if(act==='testsample'){if(Date.now()-(S.modalAt||0)<500)return;if(S.testPicked==='sample'){S.tdConfirm=null;S.modal='';render();return;}resetData('sample');}
+  else if(act==='testfresh'){if(Date.now()-(S.modalAt||0)<300)return;if(S.testPicked==='fresh'){S.tdConfirm=null;S.modal='';render();return;}resetData('fresh');}
+  else if(act==='testsample'){if(Date.now()-(S.modalAt||0)<300)return;if(S.testPicked==='sample'){S.tdConfirm=null;S.modal='';render();return;}resetData('sample');}
   else if(act==='logout'){S.from='';go('login');}
   else if(act==='del'){S.pin=S.pin.slice(0,-1);render();}
   else if(act==='clr'){S.pin='';render();}
-  else if(act==='sheet'){S.sheet=true;S.modal='';render();}
-  else if(act==='sheetx'){S.sheet=false;render();}
+  else if(act==='sheet'){S.sheetDay=null;S.sheet=true;S.modal='';render();}
+  else if(act==='sheetx'){S.sheet=false;S.sheetDay=null;render();}
   else if(act==='report'){S.modal=reportModal();render();}
   else if(act==='info'){S.modal=infoHTML(+a.dataset.i);render();}
   else if(act==='modalx'){S.modal='';render();}
@@ -1544,26 +1561,34 @@ document.addEventListener('click',function(e){
   else if(act==='pdrow'){var pd=a.dataset.d;S.pdOpen=S.pdOpen===pd?null:pd;S.pdMenu=null;pdSync();}
   else if(act==='pdmenu'){var pm=a.dataset.d;S.pdMenu=S.pdMenu===pm?null:pm;pdSync();}
   else if(act==='pdcalt'){S.pdCal=!S.pdCal;var cw=$('#pdcw');if(cw)cw.classList.toggle('shut',S.pdCal);}
-  else if(act==='pdcal'){var cd=a.dataset.d,cs=a.dataset.st;if(cs==='up'){toast('This form opens on '+mdShort(cd));}else if(cs==='today'){openForm(TODAY,'days');}else{S.pdOpen=cd;S.pdMenu=null;pdSync();var pr=$('.pdr[data-d="'+cd+'"]'),pl=$('#pdlist');if(pr&&pl)pl.scrollTo({top:pl.scrollTop+pr.getBoundingClientRect().top-pl.getBoundingClientRect().top-44,behavior:'smooth'});}}
+  else if(act==='pdcal'){var cd=a.dataset.d,cs=a.dataset.st;if(cs==='up'){toast('This form opens on '+mdShort(cd));}else if(cs==='none'){S.modal=noneModal(cd);render();}else if(cs==='today'){openForm(TODAY,'days');}else{S.pdOpen=cd;S.pdMenu=null;pdSync();var pr=$('.pdr[data-d="'+cd+'"]'),pl=$('#pdlist');if(pr&&pl)pl.scrollTo({top:pl.scrollTop+pr.getBoundingClientRect().top-pl.getBoundingClientRect().top-44,behavior:'smooth'});}}
   else if(act==='pdedit'){S.pdMenu=null;openForm(a.dataset.d,'days');}
-  else if(act==='pdsheet'){S.pdMenu=null;S.sheet=true;S.modal='';render();}
+  else if(act==='pdsheet'){S.pdMenu=null;S.sheetDay=a.dataset.d;S.sheet=true;S.modal='';render();}
   else if(act==='pdtext'){S.pdMenu=null;S.modal=reportModal();render();}
   else if(act==='pdpng'){S.pdMenu=null;pdSync();toast('Image saved (mockup)');}
   else if(act==='pdadd'){toast('Pick a date (mockup)');}
   else if(act==='upwz'){var st0=+a.dataset.s,ee=S.elects[S.peek],X=S.upx;S.wz={step:st0,dir:'next',mode:'edit',idx:S.peek,first:st0,sawM:false,d:{type:ee.type==='Election Day'?'day':'early',site:ee.site||'',official:ee.official||'',start:ee.start,end:ee.end,machines:X.machines,models:(ee.models||[]).slice(),counts:Object.assign({},X.counts)}};S.wzKeep=true;go('wizard');}
   else if(act==='fclose'){var fb=S.fmBack||'home';go(fb);toast('Saved');}
-  else if(act==='tclose'){go('upcoming');toast('Test form saved');}
-  else if(act==='mktest'){S.tmade=true;go('test');}
+  else if(act==='tclose'){go(S.pback||'upcoming');toast('Practice form saved');}
+  else if(act==='mktest'){S.pback=S.screen;S.pf.push(newPF());S.pi=S.pf.length-1;go('test');}
+  else if(act==='ptopen'){S.pback=S.screen;S.pi=+a.dataset.i;go('test');}
+  else if(act==='ptdel'){S.pdel=+a.dataset.i;S.modal=confirmHTML('Delete this practice form?','<b>'+esc(pfName(S.pdel))+'</b> will be removed from this phone. It was never part of an election.','Delete practice form').replace('data-act="cfok"','data-act="ptdelok"').replace('class="pop-go"','class="pop-go dng"');render();}
+  else if(act==='ptdelok'){S.modal='';S.pf.splice(S.pdel,1);S.pi=0;render();toast('Practice form deleted');}
   else if(act==='uptoggle'){S.upx.open=S.upx.open===a.dataset.k?null:a.dataset.k;keepScroll(render);}
   else if(act==='upm'){S.upx.machines=Math.max(1,Math.min(8,S.upx.machines+(+a.dataset.n)));keepScroll(render);}
   else if(act==='upsave'){var kk=a.dataset.k;if(kk==='m')S.upx.mDone=true;else S.upx.cDone=true;S.upx.open=null;keepScroll(render);toast(kk==='m'?'Scanner machines saved':'Starting counts saved');}
-  else if(act==='eopen'){var ei=+a.dataset.i,es=eStatus(S.elects[ei]);if(ei===liveIdx()&&es==='In progress'){go('today');}else if(es!=='Closed'){S.peek=ei;go('upcoming');}else{switchE(ei);go('days');}}
+  else if(act==='eopen'){var ei=+a.dataset.i,es=eStatus(S.elects[ei]);if(ei===liveIdx()&&es==='In progress'){switchE(ei);go('days');}else{S.peek=ei;go('upcoming');}}
+  else if(act==='upview'){switchE(S.peek);S.viewClosed=S.peek;go('days');}
+  else if(act==='updl'){switchE(S.peek);S.viewClosed=S.peek;go('download');}
   else if(act==='upsetup'){switchE(S.peek);S.from='upcoming';go('election');}
   else if(act==='esw'){switchE(+a.dataset.i);S.snap=null;keepScroll(render);}
   else if(act==='day'){var st=a.dataset.st,iso=a.dataset.d;
     if(st==='up'){toast('This form opens on '+mdShort(iso));}
+    else if(st==='none'){S.modal=noneModal(iso);render();}
     else if(st==='miss'){S.modal=dayModal(iso);render();}
     else openForm(iso,'home');}
+  else if(act==='pdnone'){S.modal=noneModal(a.dataset.d);render();}
+  else if(act==='dayopen2'){S.modal='';openForm(a.dataset.d,'days');}
   else if(act==='dayopen'){S.modal='';openForm(a.dataset.d,'home');}
   else if(act==='opentoday'){openForm(TODAY,a.dataset.back);}
   else if(act==='quote'){S.q=(S.q||0)+1;render();}
@@ -1605,7 +1630,7 @@ document.addEventListener('input',function(e){
   } else if(el.dataset.e){
     S.e[el.dataset.e]=el.value;if(el.dataset.e==='site')S.x.site=el.value;if(el.dataset.e==='off'&&S.elects[S.act])S.elects[S.act].official=el.value;
   } else if(el.dataset.x){
-    S.x[el.dataset.x]=el.value;if(S.screen==='today'||S.screen==='test')renderBoxes();
+    S.x[el.dataset.x]=el.value;if((S.screen==='today'&&!S.noOpen)||S.screen==='test')renderBoxes();
   }
 });
 function wzGo(dirn){S.wz.dd=null;S.wz.step=Math.max(0,Math.min(wzN()-1,S.wz.step+dirn));S.wz.dir=dirn>0?'next':'prev';render();$('#app').scrollTop=0;}
@@ -1654,7 +1679,7 @@ document.addEventListener('focusin',function(e){
 
 $('#phopts').innerHTML=PHOS.map(function(p){return '<button class="ropt" data-ph="'+p[0]+'">'+p[1]+'</button>';}).join('');
 $('#jumps').innerHTML=JUMPS.map(function(j){return '<button class="ropt" data-go="'+j[0]+'">'+j[1]+'</button>';}).join('');
-ensureKeys();render();
+resetData('fresh',true);render();
 })();
 </script>
 </body></html>
